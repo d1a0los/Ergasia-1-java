@@ -24,25 +24,25 @@ public class Main {
         aks_list_creator aks3 = new aks_list_creator(2124, "Stauros", "Toumpis");
         aks_list_creator aks4 = new aks_list_creator(5667, "Antonis", "Dimakis");
 
-        String[] capital={"gamw ton theo sou"};
-        er_multChoice er_multChoice = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?",capital);
+        String[] capital={"c"};
+        er_multChoice er_multChoice1 = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?",capital);
         //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
+
+        //----------------------------------------------------------------Erotiseis Me Mia Lexi Swsti-------------------------------------------------------------------
 
         String[] oneWord1={"int","Integer","Int","integer"};           
         er_oneWord er_oneWord1 = new er_oneWord(4325, "Poia lexi kleidi anaferomste se akereo arithmo ston programatismo?",oneWord1);
         //int,Integer,Int,integer
-
         String[] oneWord2={"entilakosi"};
         er_oneWord er_oneWord2 = new er_oneWord(5852, "Pos onomazetai h prosthiki san perivlima twn plhroforion elegxou sta dedomena?",oneWord2);
         //ενθυλακωση
-
         String[] oneWord3={"pelati-ejipiretiti"};
         er_oneWord er_oneWord3 = new er_oneWord(8962, "Se poio montelo stirizontai oi uporesies sto diadiktio?",oneWord3);
         //πελατη-εξηπηρετιτη
 
 
         String[] erkena1={"tetragono","mhkous","iso","tetragonon","dyo"};
-        er_kena er_kena1 = new er_kena(5467, "Το [?] tou [?] tis ipoteinousas einai [?] me to athrisma twn [?] twn mikwn twn allwn [?] pleurwn.",erkena1);
+        er_kena er_kena1 = new er_kena(5467, "To [?] tou [?] tis ipoteinousas einai [?] me to athrisma twn [?] twn mikwn twn allwn [?] pleurwn.",erkena1);
         //Το τετράγωνο του μήκους της υποτείνουσας είναι ίσο με το άθροισμα των τετραγώνων των μηκών των άλλων δύο πλευρών.
 
         String[] erkena2={"dieuthinseis","ip","dromologites"};
@@ -193,7 +193,7 @@ public class Main {
                             epilogi = input.nextLine();
 
                             if (epilogi.equals("y")) {
-                                er_kena er_kObj = new er_kena(kodikos, erotisi);
+                                er_kena er_kObj = new er_kena(kodikos, erotisi, null);
                                 clear_console();
                                 break;
 
@@ -234,7 +234,7 @@ public class Main {
                             epilogi = input.nextLine();
 
                             if (epilogi.equals("y")) {
-                                er_oneWord er_kObj = new er_oneWord(kodikos, erotisi);
+                                er_oneWord er_kObj = new er_oneWord(kodikos, erotisi, null);
                                 clear_console();
                                 break;
 
@@ -274,7 +274,7 @@ public class Main {
                             epilogi = input.nextLine();
 
                             if (epilogi.equals("y")) {
-                                er_multChoice er_kObj = new er_multChoice(kodikos, erotisi);
+                                er_multChoice er_kObj = new er_multChoice(kodikos, erotisi,null);
                                 clear_console();
                                 break;
 
@@ -310,10 +310,6 @@ public class Main {
 
                 case 3:
                     clear_console();
-                    while(true)
-                    {   
-
-                    }
                     break;
 
                 case 4:

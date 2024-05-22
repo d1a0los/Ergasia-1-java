@@ -21,11 +21,11 @@ class erotiseis {
     }
 
     public String getAnswer(){
-        return "Oi swstes apantiseis einai: "+answerList;
+        return answerList;
     }
 
     public String toString(){
-        return "Code: " + code + ", Ekfonisi: " + ekfonisi;
+        return "[>]Code: " + code + ", Ekfonisi: " + ekfonisi + ", Swstes Apantiseis: " + answerList;
     }
 }
 
@@ -33,15 +33,15 @@ class er_kena extends erotiseis {
 
     er_kena(int code, String ekfonisi, String[] answerList) {
         super(code, ekfonisi,answerList);
+        erotiseis erObj = new erotiseis(code, ekfonisi,answerList);
+        listaEr.add((er_kena)erObj);
     }
 
     public static void printList() {
-        System.out.println("\n         Erotiseis Me Kena Sto Keimeno          ");
-        System.out.println("           -----------------------------              ");
+        System.out.println("\n[!]Erotiseis Me Kena Sto Keimeno:");
         for(Object items : listaEr)
         {
             System.out.println(items.toString());
-            System.out.println("______________________________________________________________________");
         }
     }
 
@@ -62,16 +62,16 @@ class er_oneWord extends erotiseis{
 
     er_oneWord(int code, String ekfonisi, String[] answerList) {
         super(code, ekfonisi,answerList);
+        erotiseis erObj = new erotiseis(code, ekfonisi,answerList);
+        listaEr.add((er_oneWord)erObj);
     }
 
     public static void printList()
     {
-        System.out.println("\n         Erotiseis Me Mono Mia Swsti Apantisi           ");
-        System.out.println("           ------------------------------------              ");
+        System.out.println("\n[!]Erotiseis Me Mono Mia Swsti Apantisi:");
         for(Object items : listaEr)
         {
             System.out.println(items.toString());
-            System.out.println("______________________________________________________________________");
         }
     }
 
@@ -92,18 +92,17 @@ class er_multChoice extends erotiseis{
     
     er_multChoice(int code, String ekfonisi, String[] answerList) {
         super(code, ekfonisi,answerList);
-        //erotiseis erObj = new erotiseis(code, ekfonisi);
-        //listaEr.add(erObj);
+        erotiseis erObj = new erotiseis(code, ekfonisi,answerList);
+        listaEr.add((er_multChoice)erObj);
     }
 
     public static void printList()
     {
-        System.out.println("\n             Erotiseis Multiple Choice           ");
-        System.out.println("               -------------------------          ");
+        System.out.println("\n[!]Erotiseis Multiple Choice:");
+
         for(Object items : listaEr)
         {
             System.out.println(items.toString());
-            System.out.println("______________________________________________________________________");
         }
     }
 
