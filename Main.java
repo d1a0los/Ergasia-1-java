@@ -24,7 +24,7 @@ public class Main {
         aks_list_creator aks3 = new aks_list_creator(2124, "Stauros", "Toumpis");
         aks_list_creator aks4 = new aks_list_creator(5667, "Antonis", "Dimakis");
 
-        String[] capital={"a"};
+        String[] capital={"d"};
         er_multChoice er_multChoice = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?",capital);
         //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
 
