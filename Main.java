@@ -25,7 +25,7 @@ public class Main {
         aks_list_creator aks4 = new aks_list_creator(5667, "Antonis", "Dimakis");
 
         String[] capital={"c"};
-        er_multChoice er_multChoice1 = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?",capital);
+        er_multChoice er_multChoice1 = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?", capital);
         //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
 
         //----------------------------------------------------------------Erotiseis Me Mia Lexi Swsti-------------------------------------------------------------------
@@ -315,9 +315,7 @@ public class Main {
                 case 4:
                     clear_console();
                     System.out.println("                               --Erotiseis-- \n");
-                    er_kena.printList();
-                    er_oneWord.printList();
-                    er_multChoice.printList();
+                    erotiseis.printList();
 
                     System.out.println("\n[>] To exit, to Main menu press 0 or any other key.");
                     System.out.print("> ");
