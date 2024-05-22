@@ -24,20 +24,29 @@ public class Main {
         aks_list_creator aks3 = new aks_list_creator(2124, "Stauros", "Toumpis");
         aks_list_creator aks4 = new aks_list_creator(5667, "Antonis", "Dimakis");
 
-        er_kena er_kena1 = new er_kena(2367, "Poia einai h proteuousa ths Elladas?");
+        String[] capital={"a"};
+        er_multChoice er_multChoice = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?",capital);
         //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
 
-        er_oneWord er_oneWord1 = new er_oneWord(4325, "Poia lexi kleidi anaferomste se akereo arithmo ston programatismo?");
+        String[] oneWord1={"int","Integer","Int","integer"};           
+        er_oneWord er_oneWord1 = new er_oneWord(4325, "Poia lexi kleidi anaferomste se akereo arithmo ston programatismo?",oneWord1);
         //int,Integer,Int,integer
-        er_oneWord er_oneWord2 = new er_oneWord(5852, "Pos onomazetai h prosthiki san perivlima twn plhroforion elegxou sta dedomena?");
+
+        String[] oneWord2={"entilakosi"};
+        er_oneWord er_oneWord2 = new er_oneWord(5852, "Pos onomazetai h prosthiki san perivlima twn plhroforion elegxou sta dedomena?",oneWord2);
         //ενθυλακωση
-        er_oneWord er_oneWord3 = new er_oneWord(8962, "Se poio montelo stirizontai oi uporesies sto diadiktio?");
+
+        String[] oneWord3={"pelati-ejipiretiti"};
+        er_oneWord er_oneWord3 = new er_oneWord(8962, "Se poio montelo stirizontai oi uporesies sto diadiktio?",oneWord3);
         //πελατη-εξηπηρετιτη
 
 
-        er_multChoice er_multChoice1 = new er_multChoice(5467, "Το [?] tou [?] tis ipoteinousas einai [?] me to athrisma twn [?] twn mikwn twn allwn [?] pleurwn.");
+        String[] erkena1={"tetragono","mhkous","iso","tetragonon","dyo"};
+        er_kena er_kena1 = new er_kena(5467, "Το [?] tou [?] tis ipoteinousas einai [?] me to athrisma twn [?] twn mikwn twn allwn [?] pleurwn.",erkena1);
         //Το τετράγωνο του μήκους της υποτείνουσας είναι ίσο με το άθροισμα των τετραγώνων των μηκών των άλλων δύο πλευρών.
-        er_multChoice er_multChoice2 = new er_multChoice(5467, "Oi [?] enos idiotikou diktiou [?] den dromologountai apo tous [?] sto diadiktio.");
+
+        String[] erkena2={"dieuthinseis","ip","dromologites"};
+        er_kena er_kena2 = new er_kena(5467, "Oi [?] enos idiotikou diktiou [?] den dromologountai apo tous [?] sto diadiktio.",erkena2);
         //Οι διευθύνσεις ενός ιδιωτικού δικτύου IP δε δρομολογούνται από τους δρομολογητές στο Διαδίκτυο.
 
 
@@ -302,7 +311,7 @@ public class Main {
                 case 3:
                     clear_console();
                     while(true)
-                    {
+                    {   
 
                     }
                     //code

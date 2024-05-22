@@ -11,12 +11,19 @@ class aksiologoumenos {
         this.surname = surname;
     }
 
-    public String toString() {
-        return "Code: " + code + ", Name: " + name + ", Surname: " + surname;
+    public String getName(){
+        return name;
     }
 
     public int getCode(){
         return code;
+    }
+    public String getSurname(){
+        return surname;
+    }
+
+    public String toString() {
+        return "Code: " + code + ", Name: " + name + ", Surname: " + surname;
     }
 }
 
