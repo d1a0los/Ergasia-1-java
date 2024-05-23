@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
     static void clear_console() {
-        for (int i = 0; i < 80 * 5; i++)
+        for (int i = 0; i < 80 * 0.125; i++)
             System.out.println("\b");
     }
 
@@ -15,6 +15,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws InterruptedException {
+        final ArrayList listaAnswers= new ArrayList();
         int choice = 0;
         Scanner input = new Scanner(System.in);
         clear_console();
@@ -33,7 +34,7 @@ public class Main {
         er_multChoice er_multChoice2 = new er_multChoice(6565, "Poios planitis einai gnwstos ws kokkinos planitis?", planet);//a) Gh,b) Dias,c) Ouranos,d) Aris
 
         String[] ximia={"a"};
-        er_multChoice er_multChoice3 = new er_multChoice(8535, "Poio einai to xeimiko stoixeio tou nerou?", capital);//a) H2O,b) CO2,c) O2,d) NaCl
+        er_multChoice er_multChoice3 = new er_multChoice(8535, "Poio einai to xeimiko stoixeio tou nerou?", ximia);//a) H2O,b) CO2,c) O2,d) NaCl
 
         //----------------------------------------------------------------Erotiseis Me Mia Lexi Swsti-------------------------------------------------------------------
         String[] oneWord1={"int","Integer","Int","integer","INT"};           
@@ -324,16 +325,73 @@ public class Main {
                     break;
 
                 case 3:
-                    clear_console();
+                    while(true){
+                        clear_console();
 
+                        aks_list_creator.printList();
+                        boolean found=false;
+                        
+                        System.out.println("\n"+"[>] Epelekse Kodiko Aksiologoumenou Pou Tha Apantisei Mia Erotisi: ");
+                        int epilogi=input.nextInt();
+                        int seat=0;
+                        for(Object items:aksiologoumenoi){
+                            if(items.getCode.equals(epilogi)){
+                                found=true;
+                                seat++;
+                            }
+                        }
+                        
+                        if(found){
+                            
+                            int num=0;
+                            int size=listaEr.getSize();
+                            System.out.println("[>] Epelekse Erotisi Na Apantiseis: ");
+                            erotiseis.printList();
 
+                            while(num<=0 && num>size){
+                                
+                                num=input.nextInt();
+                                if(num<=0 && num>size){
+                                    System.out.println("H Erotisi Den Yparxei, Prospathise Jana");
+                                }
+                                else{
+                                    break;
+                                }
+                            }
 
-                    //logothetis job xtikiaris
+                            ArrayList listaAp = new ArrayList();
+                            System.out.println(listaEr[num-1].getEkfonisi);
+                            if(listaEr[num-1].getTypeOfEr.equals("er_kena")){
+                                listaEr[num-1].printApantiseis(listaEr[num-1].getAnswer);
+                                System.out.print("Dwse Leji Sto Keno:  ");
+                                listaAp.add(input.nextLine);
+                                for(int i=0; (listaEr[num-1].getKena)-1; i++){
+                                    System.out.print("Dwse Leji Sto Epomeno Keno:  ");
+                                    listaAp.add(input.nextLine);
+                                }
+                                listaAnswers.add(new ap_kena(listaEr[num-1], aksiologoumenoi[seat], listaAp));
+                            }
 
+                            else if(listaEr[num-1].getTypeOfEr.equals("er_oneWord")){
+                                System.out.print("Dwse Monolektiki Apantisi:  ");
+                                listaAp.add(input.nextLine);
+                                listaAnswers.add(new er_oneWord(listaEr[num-1], aksiologoumenoi[seat], listaAp));
+                            }
+                            
+                            else{
+                                
+                                listaAnswers.add(new er_multChoice(listaEr[num-1], aksiologoumenoi[seat], listaAp));
+                            }
 
+                            break;
+                        }
 
+                        else{
+                            System.out.println("O Aksiologoumenos Den Uparxei Sth Lista, Prospathise Jana");
+                        }
+                        //logothetis job xtikiaris
 
-
+                    }   
                     break;
 
                 case 4:

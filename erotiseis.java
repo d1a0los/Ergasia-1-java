@@ -31,6 +31,18 @@ class erotiseis {
         return typeOfEr;
     }
 
+    public int getSize(){
+        return listaEr.size();
+    }
+
+    public void printApantiseis(ArrayList lista){
+        System.out.println("Bale Tis Lejeis Sth Seira:");
+        for(int i=0; lista.getSize(); i++){
+            System.out.println(lista[i]);
+        }
+        
+    }
+
     public String toString(){
         return "Code: " + code + ", Ekfonisi: " + ekfonisi;
     }
@@ -63,9 +75,11 @@ class erotiseis {
 }
 
 class er_kena extends erotiseis {
+    private int kena;
 
-    er_kena(int code, String ekfonisi, String[] answerList) {
+    er_kena(int code, String ekfonisi, String[] answerList, int kena) {
         super(code, ekfonisi,answerList,"er_kena");
+        this.kena=kena;
         erotiseis erObj = new erotiseis(code, ekfonisi,answerList,"er_kena");
         listaEr.add(erObj);
     }
@@ -76,6 +90,10 @@ class er_kena extends erotiseis {
 
     public int getCode(){
         return super.getCode();
+    }
+
+    public int getKena(){
+        return kena;
     }
 
     public String[] getAnswer(){

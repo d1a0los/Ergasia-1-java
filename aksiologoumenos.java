@@ -41,7 +41,14 @@ class aks_list_creator extends aksiologoumenos {
         for(Object items : aksiologoumenoi)
         {
             System.out.println(items.toString());
-            System.out.println("===========================================");
         }
+    }
+
+    int getSize(){
+        return aksiologoumenoi.size();
+    }
+
+    ArrayList getList(){
+        return aksiologoumenoi;
     }
 }
