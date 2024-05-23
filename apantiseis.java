@@ -33,8 +33,6 @@ class ap_kena extends apantiseis{
         super(ques, stud);
         this.listaAp=listaAp;
     }
-    //apantiseis apObj = new apantiseis();
-    //  listaAp.add(apObj);
 
     public ArrayList getListaAp(){
         return listaAp;

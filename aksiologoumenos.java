@@ -1,6 +1,7 @@
 import java.util.*;
 
 class aksiologoumenos {
+    private static ArrayList aksiologoumenoi = new ArrayList();
     private int code;
     private String name;
     private String surname;
@@ -9,6 +10,7 @@ class aksiologoumenos {
         this.code = code;
         this.name = name;
         this.surname = surname;
+        aksiologoumenoi.add(this);
     }
 
     public String getName(){
@@ -22,18 +24,8 @@ class aksiologoumenos {
         return surname;
     }
 
-    public String toString() {
-        return "Code: " + code + ", Name: " + name + ", Surname: " + surname;
-    }
-}
-
-class aks_list_creator extends aksiologoumenos {
-    private static ArrayList aksiologoumenoi = new ArrayList();
-
-    aks_list_creator(int code, String name, String surname) {
-        super(code,name,surname);
-        aksiologoumenos aksObj = new aksiologoumenos(code,name,surname);
-        aksiologoumenoi.add(aksObj);
+    public static ArrayList getList(){
+        return aksiologoumenoi;
     }
 
     public static void printList()
@@ -44,11 +36,28 @@ class aks_list_creator extends aksiologoumenos {
         }
     }
 
+
+
     int getSize(){
         return aksiologoumenoi.size();
     }
 
-    ArrayList getList(){
-        return aksiologoumenoi;
+    public String toString() {
+        return "Code: " + code + ", Name: " + name + ", Surname: " + surname;
     }
 }
+/*
+class c extends aksiologoumenos {
+    aks_list_creator(int code, String name, String surname) {
+        super(code,name,surname);
+        aksiologoumenoi.add(this);
+    }
+
+    int getSize(){
+        return aksiologoumenoi.size();
+    }
+
+    public int getCode(){
+        return super.getCode();
+    }
+} */

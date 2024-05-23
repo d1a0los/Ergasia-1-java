@@ -5,7 +5,6 @@ public class Main {
         for (int i = 0; i < 80 * 0.125; i++)
             System.out.println("\b");
     }
-
     static void error_print() throws InterruptedException {
         System.out.print("[!] Lathos Epilogi, Epistrofi Sto Main Menu");
         for (int i = 0; i < 4; i++) {
@@ -21,10 +20,10 @@ public class Main {
         clear_console();
 
         //-----------------------------------------------------------------Aksiologoumenoi-----------------------------------------------------------------------------
-        aks_list_creator aks1 = new aks_list_creator(4001, "Xristos", "Kalergis");
-        aks_list_creator aks2 = new aks_list_creator(3001, "Xristos", "Koutsikas");
-        aks_list_creator aks3 = new aks_list_creator(2124, "Stauros", "Toumpis");
-        aks_list_creator aks4 = new aks_list_creator(5667, "Antonis", "Dimakis");
+        aksiologoumenos aks1 = new aksiologoumenos(4001, "Xristos", "Kalergis");
+        aksiologoumenos aks2 = new aksiologoumenos(3001, "Xristos", "Koutsikas");
+        aksiologoumenos aks3 = new aksiologoumenos(2124, "Stauros", "Toumpis");
+        aksiologoumenos aks4 = new aksiologoumenos(5667, "Antonis", "Dimakis");
 
         //---------------------------------------------------------------------Erotiseis Pollaplis Epilogis-----------------------------------------------------------
         String[] capital={"c"};
@@ -132,7 +131,7 @@ public class Main {
                         epilogi = input.nextLine();
 
                         if (epilogi.equals("y")) {
-                            aks_list_creator neos_aks = new aks_list_creator(kodikos, onoma, eponimo);
+                            aksiologoumenos neos_aks = new aksiologoumenos(kodikos, onoma, eponimo);
                             clear_console();
                             break;
                         } else if (epilogi.equals("n")) {
@@ -328,69 +327,64 @@ public class Main {
                     while(true){
                         clear_console();
 
-                        aks_list_creator.printList();
+                        aksiologoumenos.printList();
                         boolean found=false;
                         
                         System.out.println("\n"+"[>] Epelekse Kodiko Aksiologoumenou Pou Tha Apantisei Mia Erotisi: ");
                         int epilogi=input.nextInt();
-                        int seat=0;
-                        for(Object items:aksiologoumenoi){
-                            if(items.getCode.equals(epilogi)){
-                                found=true;
-                                seat++;
-                            }
+                        int pos1=0;
+
+                        for(Object items : aksiologoumenos.getList()){
+                            //if(items. == epilogi){
+                                //found=true;
+                                //pos++;
+                            //}
                         }
                         
                         if(found){
                             
-                            int num=0;
-                            int size=listaEr.getSize();
-                            System.out.println("[>] Epelekse Erotisi Na Apantiseis: ");
+                            int er_code;
+                            int size = erotiseis.listaEr.size();
+                            System.out.println("[>] Epelekse Ton Kodiko Tis Erwtisis Pou Tha Apantiseis: ");
                             erotiseis.printList();
+                            System.out.println("> ");
+                            er_code=input.nextInt();
 
-                            while(num<=0 && num>size){
+                            for(Object items : erotiseis.listaEr){
+                                if((er_kena)items.){}
                                 
-                                num=input.nextInt();
-                                if(num<=0 && num>size){
-                                    System.out.println("H Erotisi Den Yparxei, Prospathise Jana");
-                                }
-                                else{
-                                    break;
-                                }
                             }
 
                             ArrayList listaAp = new ArrayList();
                             System.out.println(listaEr[num-1].getEkfonisi);
+
                             if(listaEr[num-1].getTypeOfEr.equals("er_kena")){
                                 listaEr[num-1].printApantiseis(listaEr[num-1].getAnswer);
                                 System.out.print("Dwse Leji Sto Keno:  ");
                                 listaAp.add(input.nextLine);
+
                                 for(int i=0; (listaEr[num-1].getKena)-1; i++){
                                     System.out.print("Dwse Leji Sto Epomeno Keno:  ");
                                     listaAp.add(input.nextLine);
                                 }
-                                listaAnswers.add(new ap_kena(listaEr[num-1], aksiologoumenoi[seat], listaAp));
+                                listaAnswers.add(new ap_kena(listaEr[num-1], aksiologoumenoi[pos], listaAp));
                             }
 
                             else if(listaEr[num-1].getTypeOfEr.equals("er_oneWord")){
                                 System.out.print("Dwse Monolektiki Apantisi:  ");
                                 listaAp.add(input.nextLine);
-                                listaAnswers.add(new er_oneWord(listaEr[num-1], aksiologoumenoi[seat], listaAp));
+                                listaAnswers.add(new er_oneWord(listaEr[num-1], aksiologoumenoi[pos], listaAp));
                             }
                             
                             else{
-                                
-                                listaAnswers.add(new er_multChoice(listaEr[num-1], aksiologoumenoi[seat], listaAp));
+                                listaAnswers.add(new er_multChoice(listaEr[num-1], aksiologoumenoi[pos], listaAp));
                             }
-
                             break;
                         }
 
                         else{
                             System.out.println("O Aksiologoumenos Den Uparxei Sth Lista, Prospathise Jana");
                         }
-                        //logothetis job xtikiaris
-
                     }   
                     break;
 
@@ -426,7 +420,7 @@ public class Main {
                     System.out.println("-------------LOGGER------------------\n");
 
                     System.out.println("Aksiologoumenoi class list print: \n");
-                    aks_list_creator.printList();
+                    aksiologoumenos.printList();
 
                     System.out.println("\nErotiseis class list print: \n");
                     erotiseis.printList();

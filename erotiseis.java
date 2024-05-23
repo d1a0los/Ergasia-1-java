@@ -5,13 +5,11 @@ class erotiseis {
     private int code;
     private String ekfonisi;
     private String[] answerList;
-    private String typeOfEr;
 
-    erotiseis(int code, String ekfonisi, String[] answerList, String typeOfEr) {
+    erotiseis(int code, String ekfonisi, String[] answerList) {
         this.code = code;
         this.ekfonisi = ekfonisi;
         this.answerList=answerList;
-        this.typeOfEr = typeOfEr;
     }
 
     public String getEkfonisi(){
@@ -26,21 +24,16 @@ class erotiseis {
         return answerList;
     }
 
-    public String getTypeOfEr()
-    {
-        return typeOfEr;
-    }
-
     public int getSize(){
         return listaEr.size();
     }
 
-    public void printApantiseis(ArrayList lista){
+    public void printApantiseis(String[] lista){
         System.out.println("Bale Tis Lejeis Sth Seira:");
-        for(int i=0; lista.getSize(); i++){
-            System.out.println(lista[i]);
+
+        for(String items : lista){
+            System.out.println(items);
         }
-        
     }
 
     public String toString(){
@@ -48,40 +41,34 @@ class erotiseis {
     }
 
     public static void printList() {
-        Iterator itr = listaEr.iterator();
-        while(itr.hasNext())
+        for(Object items : listaEr)
         {
-            erotiseis items = (erotiseis)itr.next();
-            if(items.getTypeOfEr().equals("er_kena"))
+            if(items instanceof er_kena)
             {
                 System.out.print("\n[!]Erotish me kena: ");
                 System.out.print(items.toString());
             }
 
-            if(items.getTypeOfEr().equals("er_oneWord"))
+            if(items instanceof er_oneWord)
             {
                 System.out.print("\n[!]Erotish me mono mia swsti lexi gia apantisi: ");
                 System.out.print(items.toString());
             }
 
-            if(items.getTypeOfEr().equals("er_multChoice"))
+            if(items instanceof er_multChoice)
             {
                 System.out.print("\n[!]Erotiseis me pollaplis epilogis: ");
                 System.out.print(items.toString());
             }
-            //System.out.println(items.toString());
         }
     }
 }
 
 class er_kena extends erotiseis {
-    private int kena;
 
-    er_kena(int code, String ekfonisi, String[] answerList, int kena) {
-        super(code, ekfonisi,answerList,"er_kena");
-        this.kena=kena;
-        erotiseis erObj = new erotiseis(code, ekfonisi,answerList,"er_kena");
-        listaEr.add(erObj);
+    er_kena(int code, String ekfonisi, String[] answerList) {
+        super(code, ekfonisi,answerList);
+        listaEr.add(this);
     }
 
     public String getEkfonisi(){
@@ -92,10 +79,6 @@ class er_kena extends erotiseis {
         return super.getCode();
     }
 
-    public int getKena(){
-        return kena;
-    }
-
     public String[] getAnswer(){
         return super.getAnswer();
     }
@@ -104,9 +87,8 @@ class er_kena extends erotiseis {
 class er_oneWord extends erotiseis{
 
     er_oneWord(int code, String ekfonisi, String[] answerList) {
-        super(code, ekfonisi,answerList,"er_oneWord");
-        erotiseis erObj = new erotiseis(code, ekfonisi,answerList,"er_oneWord");
-        listaEr.add(erObj);
+        super(code, ekfonisi,answerList);
+        listaEr.add(this);
     }
 
     public String getEkfonisi(){
@@ -125,9 +107,8 @@ class er_oneWord extends erotiseis{
 class er_multChoice extends erotiseis{
     
     er_multChoice(int code, String ekfonisi, String[] answerList) {
-        super(code, ekfonisi,answerList,"er_multChoice");
-        erotiseis erObj = new erotiseis(code, ekfonisi,answerList,"er_multChoice");
-        listaEr.add(erObj);
+        super(code, ekfonisi,answerList);
+        listaEr.add(this);
     }
 
     public String getEkfonisi(){
