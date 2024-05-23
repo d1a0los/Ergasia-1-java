@@ -1,7 +1,7 @@
 import java.util.*;
 
 class erotiseis {
-    protected static ArrayList listaEr = new ArrayList();
+    public static ArrayList listaEr = new ArrayList();
     private int code;
     private String ekfonisi;
     private String[] answerList;
@@ -24,16 +24,29 @@ class erotiseis {
         return answerList;
     }
 
-    public int getSize(){
-        return listaEr.size();
+    public int getSize(String[] x){
+        return x.length;
     }
 
-    public void printApantiseis(String[] lista){
-        System.out.println("Bale Tis Lejeis Sth Seira:");
+    public void printApantiseis(List<String> lista){
+        //int index, temp;
+        //Random random = new Random();
+        //for (int i = lista.length - 1; i > 0; i--)
+        //{
+        //    index = random.nextInt(i + 1);
+        //    temp = lista[index];
+        //    lista[index] = lista[i];
+        //    lista[i] = temp;
+        //}
 
+        //for(String items : lista){
+        //    System.out.println(items);
+        //}
+
+        Collections.shuffle(lista);
         for(String items : lista){
             System.out.println(items);
-        }
+            }
     }
 
     public String toString(){

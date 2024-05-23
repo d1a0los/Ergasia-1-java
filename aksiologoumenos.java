@@ -1,7 +1,7 @@
 import java.util.*;
 
 class aksiologoumenos {
-    private static ArrayList aksiologoumenoi = new ArrayList();
+    public static ArrayList aksiologoumenoi = new ArrayList();
     private int code;
     private String name;
     private String surname;

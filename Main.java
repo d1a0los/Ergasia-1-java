@@ -51,7 +51,7 @@ public class Main {
         //Το τετράγωνο του μήκους της υποτείνουσας είναι ίσο με το άθροισμα των τετραγώνων των μηκών των άλλων δύο πλευρών.
 
         String[] erkena2={"dieuthinseis","ip","dromologites"};
-        er_kena er_kena2 = new er_kena(5467, "Oi [?] enos idiotikou diktiou [?] den dromologountai apo tous [?] sto diadiktio.",erkena2);
+        er_kena er_kena2 = new er_kena(8901, "Oi [?] enos idiotikou diktiou [?] den dromologountai apo tous [?] sto diadiktio.",erkena2);
         //Οι διευθύνσεις ενός ιδιωτικού δικτύου IP δε δρομολογούνται από τους δρομολογητές στο Διαδίκτυο.
 
         String[] erkena3={"stoiva","FIFO","LIFO"};
@@ -331,53 +331,60 @@ public class Main {
                         boolean found=false;
                         
                         System.out.println("\n"+"[>] Epelekse Kodiko Aksiologoumenou Pou Tha Apantisei Mia Erotisi: ");
+                        System.out.println("> ");
                         int epilogi=input.nextInt();
-                        int pos1=0;
-
-                        for(Object items : aksiologoumenos.getList()){
-                            //if(items. == epilogi){
-                                //found=true;
-                                //pos++;
-                            //}
-                        }
                         
+                        int pos1 = 0;
+
+                        for(Object items : aksiologoumenos.aksiologoumenoi){
+                            pos1++;
+                            if(((aksiologoumenos)items).getCode() == epilogi){
+                                found=true;
+                            }
+                        }
+
                         if(found){
                             
                             int er_code;
-                            int size = erotiseis.listaEr.size();
+                            //int size = erotiseis.listaEr.size();
                             System.out.println("[>] Epelekse Ton Kodiko Tis Erwtisis Pou Tha Apantiseis: ");
                             erotiseis.printList();
                             System.out.println("> ");
                             er_code=input.nextInt();
-
+                            
+                            int pos2 = 0;
                             for(Object items : erotiseis.listaEr){
-                                if((er_kena)items.){}
-                                
+                                pos2++;
+                                if(((erotiseis)items).getCode() == er_code){
+                                    break;
+                                }
                             }
 
                             ArrayList listaAp = new ArrayList();
-                            System.out.println(listaEr[num-1].getEkfonisi);
+                            
+                            System.out.println(((erotiseis)(erotiseis.listaEr).get(pos2-1)).getEkfonisi());
+                            
+                            if(((erotiseis)(erotiseis.listaEr).get(pos2-1)) instanceof er_kena){
+                                ((erotiseis)(erotiseis.listaEr).get(pos2-1)).printApantiseis(erkena1);
+                                System.out.print("Dwse Leji Gia To Prwto Keno:  ");
+                                listaAp.add(input.nextLine());
 
-                            if(listaEr[num-1].getTypeOfEr.equals("er_kena")){
-                                listaEr[num-1].printApantiseis(listaEr[num-1].getAnswer);
-                                System.out.print("Dwse Leji Sto Keno:  ");
-                                listaAp.add(input.nextLine);
-
-                                for(int i=0; (listaEr[num-1].getKena)-1; i++){
-                                    System.out.print("Dwse Leji Sto Epomeno Keno:  ");
-                                    listaAp.add(input.nextLine);
+                                for(int i=0; i < (((erotiseis)(erotiseis.listaEr).get(pos2-1)).getSize(((erotiseis)(erotiseis.listaEr).get(pos2-1)).getAnswer())); i++){
+                                    System.out.print("Dwse Leji Gia To Epomeno Keno:  ");
+                                    listaAp.add(input.nextLine());
                                 }
-                                listaAnswers.add(new ap_kena(listaEr[num-1], aksiologoumenoi[pos], listaAp));
+                                listaAnswers.add(new ap_kena(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), listaAp));
                             }
 
-                            else if(listaEr[num-1].getTypeOfEr.equals("er_oneWord")){
+                            else if(((erotiseis)(erotiseis.listaEr).get(pos2-1)) instanceof er_oneWord){
                                 System.out.print("Dwse Monolektiki Apantisi:  ");
-                                listaAp.add(input.nextLine);
-                                listaAnswers.add(new er_oneWord(listaEr[num-1], aksiologoumenoi[pos], listaAp));
+                                String app = input.nextLine();
+                                listaAnswers.add(new ap_oneWord(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), app));
                             }
                             
                             else{
-                                listaAnswers.add(new er_multChoice(listaEr[num-1], aksiologoumenoi[pos], listaAp));
+                                System.out.print("Dialexe Swstes epiloges: ");
+                                listaAnswers.add(new ap_multiChoice(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), listaAp));
                             }
                             break;
                         }
@@ -386,7 +393,7 @@ public class Main {
                             System.out.println("O Aksiologoumenos Den Uparxei Sth Lista, Prospathise Jana");
                         }
                     }   
-                    break;
+                    //break;
 
                 case 4:
                     clear_console();
