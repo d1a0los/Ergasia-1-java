@@ -19,28 +19,33 @@ public class Main {
         Scanner input = new Scanner(System.in);
         clear_console();
 
+        //-----------------------------------------------------------------Aksiologoumenoi-----------------------------------------------------------------------------
         aks_list_creator aks1 = new aks_list_creator(4001, "Xristos", "Kalergis");
         aks_list_creator aks2 = new aks_list_creator(3001, "Xristos", "Koutsikas");
         aks_list_creator aks3 = new aks_list_creator(2124, "Stauros", "Toumpis");
         aks_list_creator aks4 = new aks_list_creator(5667, "Antonis", "Dimakis");
 
+        //---------------------------------------------------------------------Erotiseis Pollaplis Epilogis-----------------------------------------------------------
         String[] capital={"c"};
-        er_multChoice er_multChoice1 = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?", capital);
-        //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
+        er_multChoice er_multChoice1 = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?", capital); //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
+
+        String[] planet={"d"};
+        er_multChoice er_multChoice2 = new er_multChoice(6565, "Poios planitis einai gnwstos ws kokkinos planitis?", planet);//a) Gh,b) Dias,c) Ouranos,d) Aris
+
+        String[] ximia={"a"};
+        er_multChoice er_multChoice3 = new er_multChoice(8535, "Poio einai to xeimiko stoixeio tou nerou?", capital);//a) H2O,b) CO2,c) O2,d) NaCl
 
         //----------------------------------------------------------------Erotiseis Me Mia Lexi Swsti-------------------------------------------------------------------
+        String[] oneWord1={"int","Integer","Int","integer","INT"};           
+        er_oneWord er_oneWord1 = new er_oneWord(4325, "Poia lexi kleidi anaferomste se akereo arithmo ston programatismo?",oneWord1);//int,Integer,Int,integer
 
-        String[] oneWord1={"int","Integer","Int","integer"};           
-        er_oneWord er_oneWord1 = new er_oneWord(4325, "Poia lexi kleidi anaferomste se akereo arithmo ston programatismo?",oneWord1);
-        //int,Integer,Int,integer
-        String[] oneWord2={"entilakosi"};
-        er_oneWord er_oneWord2 = new er_oneWord(5852, "Pos onomazetai h prosthiki san perivlima twn plhroforion elegxou sta dedomena?",oneWord2);
-        //ενθυλακωση
-        String[] oneWord3={"pelati-ejipiretiti"};
-        er_oneWord er_oneWord3 = new er_oneWord(8962, "Se poio montelo stirizontai oi uporesies sto diadiktio?",oneWord3);
-        //πελατη-εξηπηρετιτη
+        String[] oneWord2={"enthilakosi","Enthilakosi","ENTHILAKOSI"};
+        er_oneWord er_oneWord2 = new er_oneWord(5852, "Pos onomazetai h prosthiki san perivlima twn plhroforion elegxou sta dedomena?",oneWord2);//ενθυλακωση
 
+        String[] oneWord3={"pelati-ejipiretiti","Pelati-Ejipiretiti","PELATI-EJIPIRETITT"};
+        er_oneWord er_oneWord3 = new er_oneWord(8962, "Se poio montelo stirizontai oi uporesies sto diadiktio?",oneWord3);//πελατη-εξηπηρετιτη
 
+        //--------------------------------------------------------------------Erotiseis Me Kena--------------------------------------------------------------------------
         String[] erkena1={"tetragono","mhkous","iso","tetragonon","dyo"};
         er_kena er_kena1 = new er_kena(5467, "To [?] tou [?] tis ipoteinousas einai [?] me to athrisma twn [?] twn mikwn twn allwn [?] pleurwn.",erkena1);
         //Το τετράγωνο του μήκους της υποτείνουσας είναι ίσο με το άθροισμα των τετραγώνων των μηκών των άλλων δύο πλευρών.
@@ -49,8 +54,18 @@ public class Main {
         er_kena er_kena2 = new er_kena(5467, "Oi [?] enos idiotikou diktiou [?] den dromologountai apo tous [?] sto diadiktio.",erkena2);
         //Οι διευθύνσεις ενός ιδιωτικού δικτύου IP δε δρομολογούνται από τους δρομολογητές στο Διαδίκτυο.
 
+        String[] erkena3={"stoiva","FIFO","LIFO"};
+        er_kena er_kena3 = new er_kena(5747,"Mia [?] ston programatismo ilopoihtai me thn texniki [?] kai oxi [?].",erkena3);
+        //Mia stoiva ston programatismo ilopoihtai me thn texniki FIFO kai oxi LIFO.
 
-        //apantiseis
+
+
+
+        //apantiseis gia erwtiseis logothetis job 
+        //gamw ton logotheti, asxetos
+
+
+
 
 
         System.out.println("                                          __ ");
@@ -310,6 +325,15 @@ public class Main {
 
                 case 3:
                     clear_console();
+
+
+
+                    //logothetis job xtikiaris
+
+
+
+
+
                     break;
 
                 case 4:
@@ -341,23 +365,16 @@ public class Main {
 
                 case 9:
                     clear_console();
-                    System.out.println("-------------LOGGER------------------");
-                    System.out.println("                                      ");
+                    System.out.println("-------------LOGGER------------------\n");
 
-                    System.out.println("Aksiologoumenoi class list print: ");
-                    System.out.println("                         ");
+                    System.out.println("Aksiologoumenoi class list print: \n");
                     aks_list_creator.printList();
-                    System.out.println("                         ");
 
+                    System.out.println("\nErotiseis class list print: \n");
+                    erotiseis.printList();
 
-                    System.out.println("Erotiseis class list print: ");
-                    System.out.println("                         ");
-                    er_kena.printList();
-                    er_oneWord.printList();
-                    er_multChoice.printList();
-
-                    String apantiseis = null;
-                    System.out.print("aapntiseis: "+ apantiseis);
+                    String apantiseis = "\nAn ta ftiaksei pote o logothetis tha printarw alliws arxidia!!!!!11111!!!!!!11!";
+                    System.out.print("Apantiseis: "+ apantiseis);
                     epilogi = input.nextLine();
 
                     clear_console();
