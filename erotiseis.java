@@ -105,7 +105,7 @@ class er_oneWord extends erotiseis{
 class er_multChoice extends erotiseis{
     private String[] rightAnswr = new String[1];
 
-    er_multChoice(int code, String ekfonisi, String[] answerList, String[] rightAnswr) {
+    er_multChoice(int code, String ekfonisi, String[] rightAnswr,String[] answerList) {
         super(code, ekfonisi,answerList);
         this.rightAnswr = rightAnswr;
         listaEr.add(this);

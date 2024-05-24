@@ -26,14 +26,17 @@ public class Main {
         aksiologoumenos aks4 = new aksiologoumenos(5667, "Antonis", "Dimakis");
 
         //---------------------------------------------------------------------Erotiseis Pollaplis Epilogis-----------------------------------------------------------
-        String[] capital={"c"};
-        er_multChoice er_multChoice1 = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?", capital); //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
+        String[] capital={"Athina"};
+        String[] ansList1={"Thessaloniki","Patra","Athina","Hraklio"};
+        er_multChoice er_multChoice1 = new er_multChoice(2367, "Poia einai h proteuousa ths Elladas?", capital,ansList1); //α) Θεσσαλονίκη,β) Πάτρα,γ) Αθήνα,δ) Ηράκλειο
 
-        String[] planet={"d"};
-        er_multChoice er_multChoice2 = new er_multChoice(6565, "Poios planitis einai gnwstos ws kokkinos planitis?", planet);//a) Gh,b) Dias,c) Ouranos,d) Aris
+        String[] planet={"Aris"};
+        String[] ansList2={"Gh","Dias","Ouranos","Aris"};
+        er_multChoice er_multChoice2 = new er_multChoice(6565, "Poios planitis einai gnwstos ws kokkinos planitis?", planet,ansList1);//a) Gh,b) Dias,c) Ouranos,d) Aris
 
-        String[] ximia={"a"};
-        er_multChoice er_multChoice3 = new er_multChoice(8535, "Poio einai to xeimiko stoixeio tou nerou?", ximia);//a) H2O,b) CO2,c) O2,d) NaCl
+        String[] ximia={"H2O"};
+        String[] ansList3={"H2O","CO2","O2","Nacl"};
+        er_multChoice er_multChoice3 = new er_multChoice(8535, "Poio einai to xeimiko stoixeio tou nerou?", ximia,ansList1);//a) H2O,b) CO2,c) O2,d) NaCl
 
         //----------------------------------------------------------------Erotiseis Me Mia Lexi Swsti-------------------------------------------------------------------
         String[] oneWord1={"int","Integer","Int","integer","INT"};           
@@ -348,33 +351,56 @@ public class Main {
                                 int numCantidate = 0;
                                 int numRightCantidate = 0;
                                 String nextApantisi;
+                                String nextRightApantisi;
                                 
                                 System.out.println("\n[!] Dimiourgia Apantishs Gia Thn Akolouthi Erwtisi: " + erotisi);
-                                System.out.println("[!] Odigies: Dwse Arithmo Apantisewn Kai Epeita Arithmo Swntwn Apantisewn, Meta Pliktrologise Tis Ypopsifies Apantiseis ");
-                                System.out.print("[>] Arithmos Apantisewn: ");
-
+                                System.out.println("[!] Odigies: Dwse Arithmo Apantisewn Kai Epeita Arithmo Swntwn Apantisewn, \nMeta Pliktrologise Tis Ypopsifies Apantiseis ");
+                                
+                                System.out.print("[>] Dwse Arithmo Apantisewn: ");
                                 numCantidate = Integer.parseInt(input.nextLine());
 
-                                System.out.print("[>] Arithmos Swstwn Apantisewn: ");
-                                String[] erMultCh = new String[numOfKena];
-                                System.out.println("[!] Dwse Tis Apantiseis | Aritmos Apantisewn: " + numOfKena);
+                                System.out.print("[>] Dwse Arithmo Swstwn Apantisewn: ");
+                                numRightCantidate = Integer.parseInt(input.nextLine());
 
-                                for(int i = 0; i < numOfKena; i++)
+                                String[] erMultCh = new String[numCantidate];
+                                String[] erMultCh_Right = new String[numRightCantidate];
+
+                                System.out.println("[!] Dwse Tis Apantiseis | Aritmos Apantisewn: " + numCantidate);
+
+                                for(int i = 0; i < numCantidate; i++)
                                 {
                                     System.out.print("\n> ");
                                     nextApantisi = input.nextLine();
                                     erMultCh[i] = nextApantisi;
                                 }
 
+                                System.out.println("[!] Telos Epelekse Poies/a Einai Oi/H Swsth/es Erotisi/eis");
+                                System.out.println("[!] Odigies: Apo Tin Parakato Lista Me apantiseis \n--  (PARADEIGMA)An H Swsti Apantisi Einai H 2 \n--  Tote Pliktrologise Ton Arithmo '2'");
+                                System.out.println("[!]" + Arrays.toString(erMultCh_Right));
+                                if(numRightCantidate>0)
+                                {
+                                    System.out.println("\n[!] Oi Swstes Apantiesis Einai: " + numRightCantidate);
+                                }
+
+                                System.out.print("> ");
+                                
+                                for(int i = 0; i < numRightCantidate; i++)
+                                {
+                                    System.out.print("\n> ");
+                                    nextRightApantisi = input.nextLine();
+                                    erMultCh_Right[i] = nextRightApantisi;
+                                }
+
                                 System.out.println("[?] Dimiourgia Akolouthis Erwtisis Me Tis Sigkekrimenes Apantiseis?[y/n]");
                                 System.out.println("[*] Erwtisi: " + erotisi);
-                                System.out.println("[*] Apantiseis: " + Arrays.toString(erMeKena));
+                                System.out.println("[*] Apantish/eis: " + Arrays.toString(erMultCh_Right));
+
                                 System.out.print("> ");
                                 epilogi = input.nextLine();
 
                                 if (epilogi.equals("y"))
                                 {
-                                    er_multChoice er_kObj = new er_multChoice(kodikos, erotisi,null);
+                                    er_multChoice er_kObj = new er_multChoice(kodikos, erotisi,erMultCh_Right,erMultCh);
                                     clear_console();
                                     break;
                                 }
@@ -402,15 +428,13 @@ public class Main {
                                     clear_console();
                                     break;
                                 }
-                            }
-                                //code
+                            };
                         }
 
                         else
                         {
                             clear_console();
                             break;
-
                         }
                     }
                     break;

@@ -46,18 +46,3 @@ class aksiologoumenos {
         return "Code: " + code + ", Name: " + name + ", Surname: " + surname;
     }
 }
-/*
-class c extends aksiologoumenos {
-    aks_list_creator(int code, String name, String surname) {
-        super(code,name,surname);
-        aksiologoumenoi.add(this);
-    }
-
-    int getSize(){
-        return aksiologoumenoi.size();
-    }
-
-    public int getCode(){
-        return super.getCode();
-    }
-} */
