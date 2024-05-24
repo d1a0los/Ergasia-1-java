@@ -28,29 +28,17 @@ class erotiseis {
         return x.length;
     }
 
-    public void printApantiseis(List<String> lista){
-        //int index, temp;
-        //Random random = new Random();
-        //for (int i = lista.length - 1; i > 0; i--)
-        //{
-        //    index = random.nextInt(i + 1);
-        //    temp = lista[index];
-        //    lista[index] = lista[i];
-        //    lista[i] = temp;
-        //}
+    public void printApantiseis(String[] lista)
+    {
+        List<String> strList = Arrays.asList(lista);
+        Collections.shuffle(strList);
+        lista = strList.toArray(new String[strList.size()]);
 
-        //for(String items : lista){
-        //    System.out.println(items);
-        //}
-
-        Collections.shuffle(lista);
-        for(String items : lista){
-            System.out.println(items);
-            }
+        System.out.println(strList);
     }
 
     public String toString(){
-        return "Code: " + code + ", Ekfonisi: " + ekfonisi;
+        return "[*] Code: " + code + ", Ekfonisi: " + ekfonisi;
     }
 
     public static void printList() {
@@ -58,19 +46,16 @@ class erotiseis {
         {
             if(items instanceof er_kena)
             {
-                System.out.print("\n[!]Erotish me kena: ");
                 System.out.print(items.toString());
             }
 
             if(items instanceof er_oneWord)
             {
-                System.out.print("\n[!]Erotish me mono mia swsti lexi gia apantisi: ");
                 System.out.print(items.toString());
             }
 
             if(items instanceof er_multChoice)
             {
-                System.out.print("\n[!]Erotiseis me pollaplis epilogis: ");
                 System.out.print(items.toString());
             }
         }
@@ -118,9 +103,11 @@ class er_oneWord extends erotiseis{
 }
 
 class er_multChoice extends erotiseis{
-    
-    er_multChoice(int code, String ekfonisi, String[] answerList) {
+    private String[] rightAnswr = new String[1];
+
+    er_multChoice(int code, String ekfonisi, String[] answerList, String[] rightAnswr) {
         super(code, ekfonisi,answerList);
+        this.rightAnswr = rightAnswr;
         listaEr.add(this);
     }
 
