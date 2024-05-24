@@ -457,7 +457,7 @@ public class Main {
                             System.out.println(((erotiseis)(erotiseis.listaEr).get(pos2-1)).getEkfonisi());
                             
                             if(((erotiseis)(erotiseis.listaEr).get(pos2-1)) instanceof er_kena){
-                                ((erotiseis)(erotiseis.listaEr).get(pos2-1)).printApantiseis(erkena1);
+                                ((erotiseis)(erotiseis.listaEr).get(pos2-1)).printApantiseis(null);
                                 System.out.print("Dwse Leji Gia To Prwto Keno:  ");
                                 listaAp.add(input.nextLine());
 
