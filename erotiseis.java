@@ -38,7 +38,7 @@ class erotiseis {
     }
 
     public String toString(){
-        return "[*] Code: " + code + ", Ekfonisi: " + ekfonisi;
+        return "[*] Code: " + code + ", Ekfonisi: " + ekfonisi + "\n";
     }
 
     public static void printList() {

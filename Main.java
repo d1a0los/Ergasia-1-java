@@ -14,7 +14,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        final ArrayList listaAnswers= new ArrayList();
+        ArrayList listaAnswers= new ArrayList();
         int choice = 0;
         Scanner input = new Scanner(System.in);
         clear_console();
@@ -237,7 +237,7 @@ public class Main {
 
                                 if (epilogi.equals("y"))
                                 {
-                                    er_kena er_kObj = new er_kena(kodikos, erotisi, erMeKena);
+                                    er_kena er_kObj = new er_kena(kodikos, erotisi ,erMeKena);
                                     clear_console();
                                     break;
                                 }
@@ -302,7 +302,7 @@ public class Main {
                                 if (epilogi.equals("y"))
                                 {
                                     finalApantisi[0] = finalApant;
-                                    er_oneWord er_kObj = new er_oneWord(kodikos, erotisi, finalApantisi);
+                                    er_oneWord er_kObj = new er_oneWord(kodikos, erotisi,finalApantisi);
                                     clear_console();
                                     break;
                                 }
@@ -481,14 +481,17 @@ public class Main {
                             System.out.println(((erotiseis)(erotiseis.listaEr).get(pos2-1)).getEkfonisi());
                             
                             if(((erotiseis)(erotiseis.listaEr).get(pos2-1)) instanceof er_kena){
-                                ((erotiseis)(erotiseis.listaEr).get(pos2-1)).printApantiseis(null);
-                                System.out.print("Dwse Leji Gia To Prwto Keno:  ");
+                                ((erotiseis)(erotiseis.listaEr).get(pos2-1)).printApantiseis(((erotiseis)(erotiseis.listaEr).get(pos2-1)).getAnswer());
+                                System.out.print("----------------------\n");
                                 listaAp.add(input.nextLine());
 
                                 for(int i=0; i < (((erotiseis)(erotiseis.listaEr).get(pos2-1)).getSize(((erotiseis)(erotiseis.listaEr).get(pos2-1)).getAnswer())); i++){
-                                    System.out.print("Dwse Leji Gia To Epomeno Keno:  ");
+                                    System.out.print("Dwse Leji Gia To Keno:  ");
                                     listaAp.add(input.nextLine());
                                 }
+                                System.out.println("den ftiaxnw antikeimeno");
+                                ap_kena rew=new ap_kena(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), listaAp);
+                                System.out.println("ftiaxnw antikeimeno");
                                 listaAnswers.add(new ap_kena(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), listaAp));
                             }
 
@@ -499,8 +502,16 @@ public class Main {
                             }
                             
                             else{
-                                System.out.print("Dialexe Swstes epiloges: ");
-                                listaAnswers.add(new ap_multiChoice(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), listaAp));
+                                System.out.print("Dialexe Swstes epiloges H 0 Gia Na Teleiwseis: ");
+                                String app = input.nextLine();
+                                listaAp.add(app);
+                                int x=((((erotiseis)(erotiseis.listaEr).get(pos2-1)).getAnswer()).length)-1;
+                                while(app!="0" && x>0){
+                                    x--;
+                                    listaAp.add(input.nextLine());
+                                }
+                                //String[] listaAp1= Arrays.copyOf(listaAp.toArray(), listaAp.size(), String[].class);
+                                listaAnswers.add(new ap_multiChoice(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)),listaAp));
                             }
                             break;
                         }

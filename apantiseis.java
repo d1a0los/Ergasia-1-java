@@ -3,26 +3,14 @@ import java.util.*;
 class apantiseis {
     private erotiseis ques;
     private aksiologoumenos stud;
-    private String quesEk;
-    private int codeAks;
 
     apantiseis(erotiseis ques, aksiologoumenos stud){
         this.ques=ques;
         this.stud=stud;
-        this.quesEk = ques.getEkfonisi();
-        this.codeAks= stud.getCode();
-    }
-
-    public String getQuesEk(){
-        return quesEk;
-    }
-
-    public int getCodeAks(){
-        return codeAks;
     }
 
     public String toSting(){
-        return "Erotisi: "+ques.toString()+"\nAksiologoumenos:"+stud.toString();
+        return "Erotisi: "+ques.toString()+"Aksiologoumenos:"+stud.toString()+"\n";
     }
 }
 
