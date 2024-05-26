@@ -451,12 +451,15 @@ public class Main {
                         int epilogi=input.nextInt();
                         
                         int pos1 = 0;
+                        int position=0;
 
                         for(Object items : aksiologoumenos.aksiologoumenoi){
-                            pos1++;
+                            
                             if(((aksiologoumenos)items).getCode() == epilogi){
                                 found=true;
+                                position=pos1;
                             }
+                            pos1++;
                         }
 
                         if(found){
@@ -489,16 +492,14 @@ public class Main {
                                     System.out.print("Dwse Leji Gia To Keno:  ");
                                     listaAp.add(input.nextLine());
                                 }
-                                System.out.println("den ftiaxnw antikeimeno");
-                                ap_kena rew=new ap_kena(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), listaAp);
-                                System.out.println("ftiaxnw antikeimeno");
-                                listaAnswers.add(new ap_kena(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), listaAp));
+                                ap_kena rew=new ap_kena(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(position)), listaAp);
+                                listaAnswers.add(new ap_kena(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(position)), listaAp));
                             }
 
                             else if(((erotiseis)(erotiseis.listaEr).get(pos2-1)) instanceof er_oneWord){
                                 System.out.print("Dwse Monolektiki Apantisi:  ");
                                 String app = input.nextLine();
-                                listaAnswers.add(new ap_oneWord(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)), app));
+                                listaAnswers.add(new ap_oneWord(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(position)), app));
                             }
                             
                             else{
@@ -510,8 +511,8 @@ public class Main {
                                     x--;
                                     listaAp.add(input.nextLine());
                                 }
-                                //String[] listaAp1= Arrays.copyOf(listaAp.toArray(), listaAp.size(), String[].class);
-                                listaAnswers.add(new ap_multiChoice(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(pos1)),listaAp));
+
+                                listaAnswers.add(new ap_multiChoice(((erotiseis)(erotiseis.listaEr).get(pos2-1)), ((aksiologoumenos)(aksiologoumenos.aksiologoumenoi).get(position)),listaAp));
                             }
                             break;
                         }
@@ -520,9 +521,10 @@ public class Main {
                             System.out.println("O Aksiologoumenos Den Uparxei Sth Lista, Prospathise Jana");
                         }
                     }   
-                    //break;
+                    break;
 
                 case 4:
+                //Εμφάνιση των ερωτήσεων: Το πρόγραμμα να τυπώνει τη λίστα των ερωτήσεων.
                     clear_console();
                     System.out.println("                               --Erotiseis-- \n");
                     erotiseis.printList();
@@ -534,18 +536,42 @@ public class Main {
                     break;
 
                 case 5:
+                //Εμφάνιση των απαντήσεων ενός αξιολογούμενου: Το πρόγραμμα να τυπώνει
+                //τη λίστα των αξιολογούμενων από την οποία ο χρήστης επιλέγει τον
+                //αξιολογούμενο. Το πρόγραμμα θα τυπώνει τις απαντήσεις του αξιολογούμενου.
                     clear_console();
                     break;
 
                 case 6:
+                /*Εμφάνιση το πλήθος των σωστών απαντήσεων ανά αξιολογούμενο: Το
+                πρόγραμμα να υπολογίζει το πλήθος των σωστών απαντήσεων ανά
+                αξιολογούμενο για όλες τις απαντήσεις του αξιολογούμενου και να τυπώνει για
+                κάθε αξιολογούμενο το πλήθος των σωστών απαντήσεών του. Το αποτέλεσμα
+                να είναι ταξινομημένο με βάση το πλήθος των σωστών απαντήσεων (από τον
+                αξιολογούμενο με τις περισσότερες σωστές απαντήσεις προς το αξιολογούμενο
+                με τις λιγότερες σωστές απαντήσεις).
+                 */
                     clear_console();
                     break;
 
                 case 7:
+                /*Υπολογισμός του ποσοστού σωστών απαντήσεων για κάθε ερώτηση: Το
+                πρόγραμμα θα υπολογίζει και θα εκτυπώνει το ποσοστό σωστών απαντήσεων
+                για όλες τις ερωτήσεις. Το αποτέλεσμα να είναι ταξινομημένο με βάση το
+                ποσοστό των σωστών απαντήσεων (από την ερώτηση με το μεγαλύτερο
+                ποσοστό προς την ερώτηση με το μικρότερο ποσοστό).
+                 */
                     clear_console();
                     break;
 
                 case 8:
+                /*Εμφάνιση του ποσοστού των σωστών απαντήσεων ανά αξιολογούμενο: Το
+                πρόγραμμα να υπολογίζει το ποσοστό των σωστών απαντήσεων ανά
+                αξιολογούμενο για όλες τις απαντήσεις που έχει δώσει και να τυπώνει για κάθε
+                αξιολογούμενο το ποσοστό των σωστών απαντήσεών του. Το αποτέλεσμα να
+                είναι ταξινομημένο με βάση το ποσοστό των σωστών απαντήσεων (από τον
+                αξιολογούμενο με το μεγαλύτερο ποσοστό προς τον αξιολογούμενο με το
+                μικρότερο ποσοστό). */
                     clear_console();
                     break;
 
