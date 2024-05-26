@@ -43,6 +43,6 @@ class aksiologoumenos {
     }
 
     public String toString() {
-        return "Code: " + code + ", Name: " + name + ", Surname: " + surname;
+        return "[*]Code: " + code + ", Name: " + name + ", Surname: " + surname;
     }
 }

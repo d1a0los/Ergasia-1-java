@@ -28,7 +28,7 @@ class erotiseis {
         return x.length;
     }
 
-    public void printApantiseis(String[] lista)
+    public static void printApantiseis(String[] lista)
     {
         List<String> strList = Arrays.asList(lista);
         Collections.shuffle(strList);
@@ -46,17 +46,17 @@ class erotiseis {
         {
             if(items instanceof er_kena)
             {
-                System.out.print(items.toString());
+                System.out.println(items.toString());
             }
 
             if(items instanceof er_oneWord)
             {
-                System.out.print(items.toString());
+                System.out.println(items.toString());
             }
 
             if(items instanceof er_multChoice)
             {
-                System.out.print(items.toString());
+                System.out.println(items.toString());
             }
         }
     }
