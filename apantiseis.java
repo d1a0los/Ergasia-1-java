@@ -1,89 +1,83 @@
 import java.util.*;
 
 class apantiseis {
-    private erotiseis ques;
     protected aksiologoumenos stud;
-    private ArrayList listaAp;
+    protected erotiseis ques;
+    protected String[] listaAp;
 
-    apantiseis(erotiseis ques, aksiologoumenos stud, ArrayList listaAp){
+    apantiseis(aksiologoumenos stud, erotiseis ques, String[] listaAp){
         this.ques=ques;
         this.stud=stud;
         this.listaAp=listaAp;
     }
 
     public String toString(){
-        return ques.toString()+"[*] Apantish/eis:"+ listaAp+"\n";
+        return ques.toString()+"[*] Apantish/eis:"+ listaAp;
     }
 }
 
 class ap_kena extends apantiseis{
-    private ArrayList listaAp;
-    private boolean swsto;
+    private final String apType = "FILL";
 
-    ap_kena(erotiseis ques, aksiologoumenos stud, ArrayList listaAp, boolean swsto){
-        super(ques, stud,listaAp);
-        this.listaAp=listaAp;
-        this.swsto = swsto;
+    ap_kena(aksiologoumenos stud, erotiseis ques, String[] listaAp){
+        super(stud, ques,listaAp);
     }
 
-    public ArrayList getListaAp(){
+    public String[] getListaAp(){
         return listaAp;
     }
 
-    public boolean apKenaResult(){
-        return swsto;
-    }
-
-    public aksiologoumenos getAksiolog()
+    public aksiologoumenos getStudent()
     {
         return stud;
+    }
+
+    public String getApType()
+    {
+        return apType;
     }
 }
 
 class ap_oneWord extends apantiseis {
-    private ArrayList apWord;
-    private boolean swsto;
+    private final String apType = "ONE_WORD";
 
-    ap_oneWord(erotiseis ques, aksiologoumenos stud, ArrayList apWord, boolean swsto) {
-        super(ques, stud,apWord);
-        this.apWord = apWord;
-        this.swsto = swsto;
+    ap_oneWord(aksiologoumenos stud, erotiseis ques, String[] oneWord) {
+        super(ques, stud,oneWord);
     }
 
-    public ArrayList getApWord(){
-        return apWord;
-    }
-
-    public boolean apKenaResult(){
-        return swsto;
+    public String[] getApWord(){
+        return oneWord;
     }
 
     public aksiologoumenos getAksiolog()
     {
         return stud;
     }
+
+    public String getApType()
+    {
+        return apType;
+    }
 }
 
 class ap_multiChoice extends apantiseis{
-    private ArrayList listaAp;
-    private boolean swsto;
+    private final String apType = "MC";
 
-    ap_multiChoice(erotiseis ques, aksiologoumenos stud, ArrayList listAp, boolean swsto){
-        super(ques, stud,listAp);
-        this.listaAp=listAp;
-        this.swsto = swsto;
+    ap_multiChoice(aksiologoumenos stud, erotiseis ques, String[] listaAp){
+        super(ques, stud,listaAp);
     }
 
     public ArrayList getListaAp(){
         return listaAp;
     }
 
-    public boolean apKenaResult(){
-        return swsto;
-    }
-
     public aksiologoumenos getAksiolog()
     {
         return stud;
+    }
+
+    public String getApType()
+    {
+        return apType;
     }
 }

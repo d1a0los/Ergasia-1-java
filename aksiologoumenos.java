@@ -1,7 +1,6 @@
 import java.util.*;
 
 class aksiologoumenos {
-    public static ArrayList aksiologoumenoi = new ArrayList();
     private int code;
     private String name;
     private String surname;
@@ -10,7 +9,6 @@ class aksiologoumenos {
         this.code = code;
         this.name = name;
         this.surname = surname;
-        aksiologoumenoi.add(this);
     }
 
     public String getName(){
@@ -22,24 +20,6 @@ class aksiologoumenos {
     }
     public String getSurname(){
         return surname;
-    }
-
-    public static ArrayList getList(){
-        return aksiologoumenoi;
-    }
-
-    public static void printList()
-    {
-        for(Object items : aksiologoumenoi)
-        {
-            System.out.println(items.toString());
-        }
-    }
-
-
-
-    int getSize(){
-        return aksiologoumenoi.size();
     }
 
     public String toString() {

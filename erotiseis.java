@@ -1,7 +1,6 @@
 import java.util.*;
 
 class erotiseis {
-    public static ArrayList listaEr = new ArrayList();
     private int code;
     private String ekfonisi;
     private String[] answerList;
@@ -20,53 +19,30 @@ class erotiseis {
         return code;
     }
 
-    public String[] getAnswer(){
+    public String[] getAnswerList(){
         return answerList;
     }
 
-    public int getSize(String[] x){
-        return x.length;
-    }
-
-    public static void printApantiseis(String[] lista)
-    {
-        List<String> strList = Arrays.asList(lista);
-        Collections.shuffle(strList);
-        lista = strList.toArray(new String[strList.size()]);
-
-        System.out.println(strList);
-    }
+    //public static void printApantiseis(String[] lista)
+    //{
+    //    List<String> strList = Arrays.asList(lista);
+    //    Collections.shuffle(strList);
+    //    lista = strList.toArray(new String[strList.size()]);
+//
+    //    System.out.println(strList);
+    //}
 
     public String toString(){
         return "[*] Code: " + code + ", Ekfonisi: " + ekfonisi + "\n";
     }
-
-    public static void printList() {
-        for(Object items : listaEr)
-        {
-            if(items instanceof er_kena)
-            {
-                System.out.println(items.toString());
-            }
-
-            if(items instanceof er_oneWord)
-            {
-                System.out.println(items.toString());
-            }
-
-            if(items instanceof er_multChoice)
-            {
-                System.out.println(items.toString());
-            }
-        }
-    }
 }
 
-class er_kena extends erotiseis {
+class er_multChoice extends erotiseis {
+    private String[] rightAnswerList;
 
-    er_kena(int code, String ekfonisi, String[] answerList) {
+    er_multChoice(int code, String ekfonisi, String[] answerList, String[] rightAnswerList) {
         super(code, ekfonisi,answerList);
-        listaEr.add(this);
+        this.rightAnswerList=rightAnswerList;
     }
 
     public String getEkfonisi(){
@@ -79,14 +55,18 @@ class er_kena extends erotiseis {
 
     public String[] getAnswer(){
         return super.getAnswer();
+    }
+
+    public String[] getRightAnswers()
+    {
+        return rightAnswerList;
     }
 }
 
 class er_oneWord extends erotiseis{
 
-    er_oneWord(int code, String ekfonisi, String[] answerList) {
-        super(code, ekfonisi,answerList);
-        listaEr.add(this);
+    er_oneWord(int code, String ekfonisi, String[] rightAnswer) {
+        super(code, ekfonisi,rightAnswer);
     }
 
     public String getEkfonisi(){
@@ -102,13 +82,9 @@ class er_oneWord extends erotiseis{
     }
 }
 
-class er_multChoice extends erotiseis{
-    private String[] rightAnswr = new String[1];
-
-    er_multChoice(int code, String ekfonisi, String[] rightAnswr,String[] answerList) {
+class er_kena extends erotiseis{
+    er_kena(int code, String ekfonisi, String[] answerList) {
         super(code, ekfonisi,answerList);
-        this.rightAnswr = rightAnswr;
-        listaEr.add(this);
     }
 
     public String getEkfonisi(){
