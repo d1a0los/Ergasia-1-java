@@ -133,6 +133,7 @@ public class appMain {
                             System.out.print("[X] O Codikos Prepei Na Einai Austira Mono Arithmoi!");
                             functions.await();
                             functions.clear_console();
+                            break;
                         }
                     }
                     break;
@@ -143,253 +144,276 @@ public class appMain {
                         String erotisi;
                         String epilogi;
 
-                        function.clear_console();
+                        functions.clear_console();
                         System.out.println("             --Eisagogh Erwtisewn-- \n");
                         System.out.println("[>] Kodikos Erwtisis: ");
                         System.out.print("> ");
 
+                        
                         try {
                             kodikos = Integer.parseInt(input.nextLine());
+                            boolean foundDuplicate = false;
+                            for(erotiseis item: questionList)
+                            {
+                                if(kodikos == item.getCode())
+                                {
+                                    foundDuplicate = true;
+                                    System.out.print("\n[!] Ayth H Erotisi Yparxei Idi Parakalw Eisagete Neo Kodiko!");
+                                    functions.await();
+                                    break;
+                                }
+                            }
 
-                            System.out.println("\n[>] Epelekse Typo Erwtisis: ");
-                            System.out.println("[1] Keimeno Me kena ");
-                            System.out.println("[2] Erwtisi Me Monaxa Mia Swsth Lexi ");
-                            System.out.println("[3] Erwtisi Pollaplis Epilogis\n");
-                            System.out.println("[>] Pata 0 h Otidipote Allo Gia Epistrofi Sto Main Menu");
-                            System.out.print("> ");
-    
-                            epilogi = input.nextLine();
-
-                            if (epilogi.equals("1")) {
-                                clear_console();
-                                System.out.println("             --Erwtisi Me Kena-- \n");
-                                System.out.println("[!] Odigies: Opou Einai Na Mpei Keno Valte '[?]' ");
-                                System.out.println("[>] Parakalo Eisagete To Keimeno.");
+                            if (!foundDuplicate)
+                            {
+                                System.out.println("\n[>] Epelekse Typo Erwtisis: ");
+                                System.out.println("[1] Keimeno Me kena ");
+                                System.out.println("[2] Erwtisi Me Monaxa Mia Swsth Lexi ");
+                                System.out.println("[3] Erwtisi Pollaplis Epilogis\n");
+                                System.out.println("[>] Pata 0 h Otidipote Allo Gia Epistrofi Sto Main Menu");
                                 System.out.print("> ");
-    
-                                erotisi = input.nextLine();
-    
-                                System.out.println("\n[?]: Prosthesi Akolouthis Erwtisis?[y/n]");
-                                System.out.println("[>] " + erotisi);
-                                System.out.print("> ");
-    
+                                
                                 epilogi = input.nextLine();
-    
-                                if (epilogi.equals("y")) {
-                                    int numOfKena = 0;
-                                    String nextApantisi;
-    
-                                    System.out.println("\n[!] Dimiourgia Apantishs Gia Thn Akolouthi Erwtisi: " + erotisi);
-                                    System.out.println("[!] Odigies: Dwse Arithmo Kenwn Kai Epeita Pliktrologise Tis Apantiseis Me Thn Swsti Seira ");
+
+                                if (epilogi.equals("1")) {
+                                    functions.clear_console();
+                                    System.out.println("             --Erwtisi Me Kena-- \n");
+                                    System.out.println("[!] Odigies: Opou Einai Na Mpei Keno Valte '[?]' ");
+                                    System.out.println("[>] Parakalo Eisagete To Keimeno.");
                                     System.out.print("> ");
-    
+                                
+                                    erotisi = input.nextLine();
+                                
+                                    System.out.println("\n[?]: Prosthesi Akolouthis Erwtisis?[y/n]");
+                                    System.out.println("[>] " + erotisi);
+                                    System.out.print("> ");
+                                
+                                    epilogi = input.nextLine();
+                                
+                                    if (epilogi.equals("y")) {
+                                        int numOfKena = 0;
+                                        String nextApantisi;
                                     
-                                    try{
-                                        numOfKena = Integer.parseInt(input.nextLine());
-                                    }catch(Exception e){
-                                        System.err.print("[X] Error Lathos Eisagogi Pliroforias! | " + e);
+                                        System.out.println("\n[!] Dimiourgia Apantishs Gia Thn Akolouthi Erwtisi: " + erotisi);
+                                        System.out.println("[!] Odigies: Dwse Arithmo Kenwn Kai Epeita Pliktrologise Tis Apantiseis Me Thn Swsti Seira ");
+                                        System.out.print("> ");
+                                    
+
+                                        try{
+                                            numOfKena = Integer.parseInt(input.nextLine());
+                                        }catch(Exception e){
+                                            System.err.print("[X] Error Lathos Eisagogi Pliroforias! | " + e);
+                                            functions.await();
+                                            functions.clear_console();
+                                            break;
+                                        }
+
+                                        String[] erMeKena = new String[numOfKena];
+                                        System.out.println("[!] Dwse Tis Apantiseis Me Tin Swsti Seira! | Aritmos Apantisewn: " + numOfKena);
+                                    
+                                        for(int i = 0; i < numOfKena; i++)
+                                        {
+                                            System.out.print("\n> ");
+                                            nextApantisi = input.nextLine();
+                                            erMeKena[i] = nextApantisi;
+                                        }
+                                    
+                                        System.out.println("[?] Dimiourgia Akolouthis Erwtisis Me Tis Sigkekrimenes Apantiseis?[y/n]");
+                                        System.out.println("[*] Erwtisi: " + erotisi);
+                                        System.out.println("[*] Apantiseis: " + Arrays.toString(erMeKena));
+                                        System.out.print("> ");
+                                        epilogi = input.nextLine();
+                                    
+                                        if (epilogi.equals("y"))
+                                        {
+                                            questionList.add(new er_kena(kodikos, erotisi ,erMeKena));
+                                            System.out.print("[!] H Erotisi Apothikeutike Me Epituxia!");
+                                            functions.await();
+                                            functions.clear_console();
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            System.out.print("Epistrofi Sto Menu");
+                                            functions.await();
+                                            functions.clear_console();
+                                            break;
+                                        }
+                                    
+                                    } 
+                                    else
+                                    {
+                                        System.out.print("Epistrofi Sto Menu");
                                         functions.await();
                                         functions.clear_console();
                                         break;
                                     }
+                                }
+                            
+                                else if (epilogi.equals("2")) {
+                                    functions.clear_console();
+                                    System.out.println("                --Erwtisi Monaxa Mia Swsth Lexi-- ");
+                                    System.out.println("                                             ");
+                                    System.out.println("[>] Parakalo Eisagete Thn Ekfonisi.");
+                                    System.out.print("> ");
+                                
+                                    erotisi = input.nextLine();
+                                
+                                    System.out.println("                                             ");
+                                    System.out.println("[?]: Prosthesi Akolouthis Erwtisis?[y/n]");
+                                    System.out.println("[>] " + erotisi);
+                                    System.out.print("> ");
+                                
+                                    epilogi = input.nextLine();
+                                
+                                    if (epilogi.equals("y")) {
+                                        String[] finalApantisi = new String[1];
+                                        String finalApant;
+                                    
+                                        System.out.println("\n[!] Dimiourgia Apantishs Gia Thn Akolouthi Erwtisi: " + erotisi);
+                                        System.out.print("> ");
+                                        finalApant = input.nextLine();
+                                    
+                                        System.out.println("[?] Dimiourgia Akolouthis Erwtisis Me Thn Sigkekrimeni Apantisi?[y/n]");
+                                        System.out.println("[*] Erwtisi: " + erotisi);
+                                        System.out.println("[*] Apantish: " + finalApant);
+                                        System.out.print("> ");
+                                        epilogi = input.nextLine();
+                                    
+                                        if (epilogi.equals("y"))
+                                        {
+                                            finalApantisi[0] = finalApant;
+                                            questionList.add(new er_oneWord(kodikos, erotisi,finalApantisi));
+                                            System.out.print("[!] H Erotisi Apothikeutike Me Epituxia!");
+                                            functions.await();
+                                            functions.clear_console();
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            System.out.print("Epistrofi Sto Menu");
+                                            functions.await();
+                                            functions.clear_console();
+                                            break;
+                                        }
+                                    
+                                    } else{
+                                        System.out.print("Epistrofi Sto Menu");
+                                        functions.await();
+                                        functions.clear_console();
+                                        break;
+                                    }
+                                }
+                            
+                                else if (epilogi.equals("3")) {
+                                    functions.clear_console();
+                                    System.out.println("                --Erwtisi Pollaplis Epilogis-- ");
+                                    System.out.println("                                             ");
+                                    System.out.println("[>] Parakalo Eisagete Thn Ekfonisi.");
+                                    System.out.print("> ");
+                                
+                                    erotisi = input.nextLine();
+                                
+                                    System.out.println("                                             ");
+                                    System.out.println("[?]: Prosthesi Akolouthis Erwtisis?[y/n]");
+                                    System.out.println("[>] " + erotisi);
+                                    System.out.print("> ");
+                                
+                                    epilogi = input.nextLine();
+                                
+                                    if (epilogi.equals("y")) {
+                                        int numCantidate = 0;
+                                        int numRightCantidate = 0;
+                                        String nextApantisi;
+                                        int nextRightApantisi;
+                                    
+                                        System.out.println("\n[!] Dimiourgia Apantishs Gia Thn Akolouthi Erwtisi: " + erotisi);
+                                        System.out.println("[!] Odigies: Dwse Arithmo Apantisewn Kai Epeita Arithmo Swntwn Apantisewn, \nMeta Pliktrologise Tis Ypopsifies Apantiseis ");
+                                    
+                                        System.out.print("[>] Dwse Arithmo Apantisewn: ");
+                                        numCantidate = Integer.parseInt(input.nextLine());
+                                    
+                                        System.out.print("[>] Dwse Arithmo Swstwn Apantisewn: ");
+                                        numRightCantidate = Integer.parseInt(input.nextLine());
+                                    
+                                        String[] erMultCh = new String[numCantidate];
+                                        String[] erMultCh_Right = new String[numRightCantidate];
+                                    
+                                        System.out.println("[!] Dwse Tis Apantiseis | Aritmos Apantisewn: " + numCantidate);
+                                    
+                                        for(int i = 0; i < numCantidate; i++)
+                                        {
+                                            System.out.print("\n> ");
+                                            nextApantisi = input.nextLine();
+                                            erMultCh[i] = nextApantisi;
+                                        }
+                                    
+                                        System.out.println("[!] Telos Epelekse Poies/a Einai Oi/H Swsth/es Apantisi/eis");
+                                        System.out.println("[!] Odigies: Apo Tin Parakato Lista Me apantiseis \n--  (PARADEIGMA)An H Swsti Apantisi Einai H 2 \n--  Tote Pliktrologise Ton Arithmo '2'");
+                                        System.out.println("[!]" + Arrays.toString(erMultCh));
+                                        if(numRightCantidate>0)
+                                        {
+                                            System.out.println("\n[!] Oi Swstes Apantiesis Einai: " + numRightCantidate);
+                                            for(int i = 0; i < numRightCantidate; i++)
+                                            {
+                                                System.out.print("\n> ");
+                                                nextRightApantisi = Integer.parseInt(input.nextLine());
+                                                erMultCh_Right[i] = erMultCh[nextRightApantisi-1];
+                                            }
+                                        
+                                            System.out.println("[?] Dimiourgia Akolouthis Erwtisis Me Tis Sigkekrimenes Apantiseis?[y/n]");
+                                            System.out.println("[*] Erwtisi: " + erotisi);
+                                            System.out.println("[*] Apantish/eis: " + Arrays.toString(erMultCh_Right));
+                                        
+                                            System.out.print("> ");
+                                            epilogi = input.nextLine();
+                                        
+                                            if (epilogi.equals("y"))
+                                            {
+                                                questionList.add(new er_multChoice(kodikos, erotisi,erMultCh_Right,erMultCh));
+                                                System.out.print("[!] H Erotisi Apothikeutike Me Epituxia!");
+                                                functions.await();
+                                                functions.clear_console();
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                functions.clear_console();
+                                                break;
+                                            }
+                                        }
+                                        else{
+                                            System.out.print("[X] Oi Swstes Apantiseis Prepei Na Einai Toulaxiston Mia!");
+                                            functions.await();
+                                            functions.clear_console();
+                                        }
+                                    
+                                        }
+                                        else{
+                                            System.out.print("Epistrofi Sto Menu");
+                                            functions.await();
+                                            functions.clear_console();
+                                            break;
+                                        }
+                                    }
+                                
+                                    else
+                                    {
+                                        System.out.print("Epistrofi Sto Menu");
+                                        functions.await();
+                                        functions.clear_console();
+                                        break;
+                                    }
+                            } 
+                        }
 
-                                    String[] erMeKena = new String[numOfKena];
-                                    System.out.println("[!] Dwse Tis Apantiseis Me Tin Swsti Seira! | Aritmos Apantisewn: " + numOfKena);
-    
-                                    for(int i = 0; i < numOfKena; i++)
-                                    {
-                                        System.out.print("\n> ");
-                                        nextApantisi = input.nextLine();
-                                        erMeKena[i] = nextApantisi;
-                                    }
-    
-                                    System.out.println("[?] Dimiourgia Akolouthis Erwtisis Me Tis Sigkekrimenes Apantiseis?[y/n]");
-                                    System.out.println("[*] Erwtisi: " + erotisi);
-                                    System.out.println("[*] Apantiseis: " + Arrays.toString(erMeKena));
-                                    System.out.print("> ");
-                                    epilogi = input.nextLine();
-    
-                                    if (epilogi.equals("y"))
-                                    {
-                                        er_kena er_kObj = new er_kena(kodikos, erotisi ,erMeKena);
-                                        clear_console();
-                                        break;
-                                    }
-                                    else if (epilogi.equals("n"))
-                                    {
-                                        clear_console();
-                                        break;
-                                    }
-    
-                                } 
-                                else
-                                {
-                                    clear_console();
-                                    break;
-                                }
-                            }
-    
-                            else if (epilogi.equals("2")) {
-                                clear_console();
-                                System.out.println("                --Erwtisi Monaxa Mia Swsth Lexi-- ");
-                                System.out.println("                                             ");
-                                System.out.println("[>] Parakalo Eisagete To Keimeno.");
-                                System.out.print("> ");
-    
-                                erotisi = input.nextLine();
-    
-                                System.out.println("                                             ");
-                                System.out.println("[?]: Prosthesi Akolouthis Erwtisis?[y/n]");
-                                System.out.println("[>] " + erotisi);
-                                System.out.print("> ");
-    
-                                epilogi = input.nextLine();
-    
-                                if (epilogi.equals("y")) {
-                                    String[] finalApantisi = new String[1];
-                                    String finalApant;
-    
-                                    System.out.println("\n[!] Dimiourgia Apantishs Gia Thn Akolouthi Erwtisi: " + erotisi);
-                                    System.out.print("> ");
-                                    finalApant = input.nextLine();
-    
-                                    System.out.println("[?] Dimiourgia Akolouthis Erwtisis Me Thn Sigkekrimeni Apantisi?[y/n]");
-                                    System.out.println("[*] Erwtisi: " + erotisi);
-                                    System.out.println("[*] Apantish: " + finalApant);
-                                    System.out.print("> ");
-                                    epilogi = input.nextLine();
-    
-                                    if (epilogi.equals("y"))
-                                    {
-                                        finalApantisi[0] = finalApant;
-                                        er_oneWord er_kObj = new er_oneWord(kodikos, erotisi,finalApantisi);
-                                        clear_console();
-                                        break;
-                                    }
-                                    else if (epilogi.equals("n"))
-                                    {
-                                        clear_console();
-                                        break;
-                                    }
-    
-                                } else if (epilogi.equals("n")) {
-                                    clear_console();
-                                    break;
-                                }
-                            }
-    
-                            else if (epilogi.equals("3")) {
-                                clear_console();
-                                System.out.println("                --Erwtisi Pollaplis Epilogis-- ");
-                                System.out.println("                                             ");
-                                System.out.println("[>] Parakalo Eisagete To Keimeno.");
-                                System.out.print("> ");
-    
-                                erotisi = input.nextLine();
-    
-                                System.out.println("                                             ");
-                                System.out.println("[?]: Prosthesi Akolouthis Erwtisis?[y/n]");
-                                System.out.println("[>] " + erotisi);
-                                System.out.print("> ");
-    
-                                epilogi = input.nextLine();
-    
-                                if (epilogi.equals("y")) {
-                                    int numCantidate = 0;
-                                    int numRightCantidate = 0;
-                                    String nextApantisi;
-                                    String nextRightApantisi;
-    
-                                    System.out.println("\n[!] Dimiourgia Apantishs Gia Thn Akolouthi Erwtisi: " + erotisi);
-                                    System.out.println("[!] Odigies: Dwse Arithmo Apantisewn Kai Epeita Arithmo Swntwn Apantisewn, \nMeta Pliktrologise Tis Ypopsifies Apantiseis ");
-    
-                                    System.out.print("[>] Dwse Arithmo Apantisewn: ");
-                                    numCantidate = Integer.parseInt(input.nextLine());
-    
-                                    System.out.print("[>] Dwse Arithmo Swstwn Apantisewn: ");
-                                    numRightCantidate = Integer.parseInt(input.nextLine());
-    
-                                    String[] erMultCh = new String[numCantidate];
-                                    String[] erMultCh_Right = new String[numRightCantidate];
-    
-                                    System.out.println("[!] Dwse Tis Apantiseis | Aritmos Apantisewn: " + numCantidate);
-    
-                                    for(int i = 0; i < numCantidate; i++)
-                                    {
-                                        System.out.print("\n> ");
-                                        nextApantisi = input.nextLine();
-                                        erMultCh[i] = nextApantisi;
-                                    }
-    
-                                    System.out.println("[!] Telos Epelekse Poies/a Einai Oi/H Swsth/es Erotisi/eis");
-                                    System.out.println("[!] Odigies: Apo Tin Parakato Lista Me apantiseis \n--  (PARADEIGMA)An H Swsti Apantisi Einai H 2 \n--  Tote Pliktrologise Ton Arithmo '2'");
-                                    System.out.println("[!]" + Arrays.toString(erMultCh_Right));
-                                    if(numRightCantidate>0)
-                                    {
-                                        System.out.println("\n[!] Oi Swstes Apantiesis Einai: " + numRightCantidate);
-                                    }
-    
-                                    for(int i = 0; i < numRightCantidate; i++)
-                                    {
-                                        System.out.print("\n> ");
-                                        nextRightApantisi = input.nextLine();
-                                        erMultCh_Right[i] = nextRightApantisi;
-                                    }
-    
-                                    System.out.println("[?] Dimiourgia Akolouthis Erwtisis Me Tis Sigkekrimenes Apantiseis?[y/n]");
-                                    System.out.println("[*] Erwtisi: " + erotisi);
-                                    System.out.println("[*] Apantish/eis: " + Arrays.toString(erMultCh_Right));
-    
-                                    System.out.print("> ");
-                                    epilogi = input.nextLine();
-    
-                                    if (epilogi.equals("y"))
-                                    {
-                                        er_multChoice er_kObj = new er_multChoice(kodikos, erotisi,erMultCh_Right,erMultCh);
-                                        clear_console();
-                                        break;
-                                    }
-                                    else if (epilogi.equals("n"))
-                                    {
-                                        clear_console();
-                                        break;
-                                    }
-    
-    
-                                } else if (epilogi.equals("n")) {
-                                    System.out.println("[?] Epaneisagogi Neas Erotisis?[y/n]");
-                                    System.out.print("> ");
-    
-                                    epilogi = input.nextLine();
-    
-                                    if (epilogi.equals("n")) {
-                                        clear_console();
-                                        break;
-                                    } else if (epilogi.equals("y")) {
-                                        clear_console();
-                                        continue;
-                                    } else {
-                                        error_print();
-                                        clear_console();
-                                        break;
-                                    }
-                                }
-                            }
-    
-                            else
-                            {
-                                clear_console();
-                                break;
-                            }
-                        } 
-                        
                         catch (Exception e) {
                             System.out.print("[X] O Codikos Prepei Na Einai Austira Mono Arithmoi!");
                             functions.await();
                             functions.clear_console();
                         }
-                    }
-                    break;
+                        }
+                        break;
 
                 case 3:
                     break;
