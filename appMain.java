@@ -412,8 +412,8 @@ public class appMain {
                             functions.await();
                             functions.clear_console();
                         }
-                        }
-                        break;
+                    }
+                break;
 
                 case 3:
                     break;
@@ -432,6 +432,17 @@ public class appMain {
 
                 case 8:
                     break;
+
+                default:
+                    break;
+            }
+
+            if(choice == 0)
+            {
+                System.out.print("\nExiting");
+                functions.await();
+                functions.clear_console();
+                break;
             }
         }
     }

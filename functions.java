@@ -20,7 +20,7 @@ public class functions {
         System.out.println("[7] Ypologismos Posostou Swstwn Apantisewn Gia Kathe Erwtisi");
         System.out.println("[8] Emfanisi Posostou Swstwn Apantisewn Ana Aksiologoumeno");
         System.out.println("                                             ");
-        System.out.println("[>] To exit press 0 or any other key.");
+        System.out.println("[>] To exit press 0.");
         System.out.print("> ");
     }
 
