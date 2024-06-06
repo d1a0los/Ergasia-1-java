@@ -126,9 +126,11 @@ public class appMain {
                                     break;
                                 }
                             }
+
                             else{
                                 continue;
                             }
+
                         } catch (Exception e) {
                             System.out.print("[X] O Codikos Prepei Na Einai Austira Mono Arithmoi!");
                             functions.await();
@@ -562,6 +564,7 @@ public class appMain {
                     break;
 
                 case 4:
+
                     functions.clear_console();
                     System.out.println("                               --Erotiseis-- \n");
                     for(erotiseis item:questionList){
@@ -571,15 +574,67 @@ public class appMain {
                     System.out.println("\n[>] To exit, to Main menu press 0 or any other key.");
                     System.out.print("> ");
                     input.nextLine();
-                    System.out.print("Epistrofi Sto Menu");
+                    System.out.print("[!] Epistrofi Sto Menu");
                     functions.await();
                     functions.clear_console();
                     break;
 
                 case 5:
+                    functions.clear_console();
+                    
+                    while(true)
+                    {
+                        System.out.println("                  -Emfanisi Apantisewn Enos Aksiologoumenou-\n");
+                        int code;
+                        boolean found = false;
+
+                        for(aksiologoumenos item: aksiologoumenoi){
+                            System.out.println(item.toString());
+                        }
+
+                        System.out.print("> ");
+                        code = Integer.parseInt(input.nextLine());
+    
+                        for(aksiologoumenos items : aksiologoumenoi){   
+                            if(items.getCode() == code){
+                                found = true;
+                                for(apantiseis item : answerList)
+                                {
+                                    if(item.getStudent() == items)
+                                    {
+                                        System.out.println(Arrays.toString(item.getListaAp()));
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if(!found)
+                        {
+                            System.out.print("[!] O Aksiologoumenos Den Uparxei Sth Lista, Prospathise Jana!");
+                            functions.await();
+                            break;
+                        }
+                        
+                        System.out.println("[!] Gia Epistofi Sto Main Menu Pata 0, Pata Otidipote Allo Gia Epaneisagogi Aksiologoumenou");
+                        String epilogi = input.nextLine();
+
+                        if(epilogi.equals("0"))
+                        {
+                            System.out.print("[!] Epistrofi sto menu");
+                            functions.await();
+                            break;
+                        }
+                        else{
+                            functions.clear_console();
+                            continue;
+                        }
+                    }
+                    functions.clear_console();
                     break;
 
                 case 6:
+                    
+                    functions.rightCheck(capital, answerList.get(0).getListaAp(), questionList.get(0));
                     break;
 
                 case 7:

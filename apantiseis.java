@@ -11,6 +11,15 @@ class apantiseis {
         this.listaAp=listaAp;
     }
 
+    public aksiologoumenos getStudent()
+    {
+        return stud;
+    }
+
+    public String[] getListaAp(){
+        return listaAp;
+    }
+
     public String toString(){
         return ques.toString()+"[*] Apantish/eis:"+ listaAp;
     }
@@ -67,7 +76,7 @@ class ap_multiChoice extends apantiseis{
         super(stud,ques, listaAp);
     }
 
-    public ArrayList getListaAp(){
+    public String[] getListaAp(){
         return listaAp;
     }
 

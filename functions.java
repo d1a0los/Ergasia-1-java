@@ -30,4 +30,30 @@ public class functions {
             Thread.sleep(850);
         }
     }
+
+    static boolean rightCheck(String[] rightAnswers, String[] studAnswers, erotiseis question)
+    {
+        boolean isRight = false;
+
+        if(question instanceof er_multChoice)
+        {
+            if(studAnswers == ((er_multChoice)question).getRightAnswers() & studAnswers.length == ((er_multChoice)question).getRightAnswers().length)
+            {
+                System.out.println("sostost!!!!!!!!");
+                isRight = true;
+            }
+        }
+
+        else if(question instanceof er_oneWord)
+        {
+
+        }
+
+        else if(question instanceof er_kena)
+        {
+
+        }
+
+        return isRight;
+    }
 }
