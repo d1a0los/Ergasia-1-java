@@ -23,14 +23,14 @@ class erotiseis {
         return answerList;
     }
 
-    //public static void printApantiseis(String[] lista)
-    //{
-    //    List<String> strList = Arrays.asList(lista);
-    //    Collections.shuffle(strList);
-    //    lista = strList.toArray(new String[strList.size()]);
-//
-    //    System.out.println(strList);
-    //}
+    public static void printApantiseis(String[] lista)
+    {
+        List<String> strList = Arrays.asList(lista);
+        Collections.shuffle(strList);
+        lista = strList.toArray(new String[strList.size()]);
+
+        System.out.println(strList);
+    }
 
     public String toString(){
         return "[*] Code: " + code + ", Ekfonisi: " + ekfonisi + "\n";

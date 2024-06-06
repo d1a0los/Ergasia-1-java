@@ -416,6 +416,133 @@ public class appMain {
                 break;
 
                 case 3:
+                    while(true){
+                        clear_console();
+
+                        boolean foundAksiolog=false;
+                        System.out.println("Aksiologoumenoi:");
+                        for(aksiologoumenos item: aksiologoumenoi){
+                            System.out.println(item.toString());
+                        }
+
+
+                        System.out.println("\n"+"[>] Epelekse Kodiko Aksiologoumenou Pou Tha Apantisei Mia Erotisi: ");
+                        System.out.print("> ");
+                        int epilogi=Integer.parseInt(input.nextLine());
+
+
+                        int pos1=0;
+
+                        for(int i=0; aksiologoumenoi.length; i++){   
+                            if(aksiologoumeoi[i].getCode() == epilogi){
+                                foundAksiolog=true;
+                                pos1=i;
+                                break;
+                            }
+                        
+                        }
+
+                        if(foundAksiolog){
+
+                            int er_code;
+                            boolean foundErot = false;
+
+                            System.out.println("Erotiseis:");
+
+                            for(erotiseis item: questionList){
+                                System.out.println(item.toString());
+                            }
+                        
+                            System.out.println("[>] Epelekse Ton Kodiko Tis Erwtisis Pou Tha Apantiseis: \n");
+
+                            System.out.print("> ");
+                            er_code= Integer.parseInt(input.nextLine());
+
+                            int pos2;
+                            for(int i=0; questionList; i++){
+                                if(questionList(i).getCode() == er_code){
+                                    foundErot = true;
+                                    pos2=i;
+                                    break;
+                                }
+                            }
+
+                            if (foundErot)
+                            {
+
+                                System.out.println(questionList(pos2).getEkfonisi());
+
+                                if(questionList(pos2) instanceof er_kena){
+                                    System.out.println("[*] Apantiseis Me Mperdemenh Seira: "); 
+                                    erotiseis.printApantiseis(questionList(pos2).getAnswer());
+                                    System.out.println("Vale Tis Lexeis Stin Swsti Seira, ");
+                                    System.out.println("Pliktrologontas Mia-Mia Tis Lexeis Stin Seira Pou Theorite Eseis Swsth.");
+
+                                    int b=questionList(pos2).getAnswer().length;
+                                    String[] listaAp= String[b];
+                                    for(int i=0; b; i++){
+                                        System.out.print("\n>");
+                                        c=input.nextLine();
+                                        listaAp[i]=c;
+                                    }
+
+
+
+                                    ap_kena apKenaObj = new ap_kena(questionList(pos2), aksiologoumenoi(pos1), listaAp);
+                                    answerList.add(apKenaObj);
+                                    clear_console();
+                                }
+
+                                else if(questionList(pos2) instanceof er_oneWord){
+                                    System.out.print("Dwse Monolektiki Apantisi:  ");
+                                    String[] app = String[1];
+                                    app[0]=input.nextLine();
+
+                                    answerList.add(new ap_oneWord(questionList(pos2), aksiologoumenoi(position), app));
+                                }
+
+                                else{
+                                    for(int i=0; (questionList(pos2).getAnswer()).length; i++)
+                                    {
+                                        System.out.println("> "+questionList(pos2)[i]);
+                                    }
+                                    String[] app= String[(questionList(pos2).getAnswer()).length];
+                                    System.out.print("Dialexe Swstes epiloges H 0 Gia Na Teleiwseis: \n");
+
+                                    for(int i=0; (questionList(pos2).getAnswer()).length; i++)
+                                    {
+
+                                        System.out.print("> ");
+
+                                        if (input.nextLine().equals("0"))
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            app[i]= input.nextLine();
+                                        }
+                                    }
+                                }
+
+
+                                    questionList.add(new ap_multiChoice(questionList(pos2), aksiologoumenoi(position),listaAp));
+                            
+                                break;
+                            }
+                            
+
+                            else{
+                                System.out.println("[!] H Erotisi Pou Ypovalate Den Yparxei Stin Lista!");
+                            }
+                        
+                        }
+                        else
+                        {
+                            System.out.println("[!] O Aksiologoumenos Den Uparxei Sth Lista, Prospathise Jana!");
+                        }
+                    }
+
                     break;
 
                 case 4:
