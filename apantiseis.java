@@ -42,7 +42,7 @@ class ap_oneWord extends apantiseis {
     private final String apType = "ONE_WORD";
 
     ap_oneWord(aksiologoumenos stud, erotiseis ques, String[] oneWord) {
-        super(ques, stud,oneWord);
+        super(stud, ques,  oneWord);
     }
 
     public String[] getApWord(){
@@ -64,7 +64,7 @@ class ap_multiChoice extends apantiseis{
     private final String apType = "MC";
 
     ap_multiChoice(aksiologoumenos stud, erotiseis ques, String[] listaAp){
-        super(ques, stud,listaAp);
+        super(stud,ques, listaAp);
     }
 
     public ArrayList getListaAp(){

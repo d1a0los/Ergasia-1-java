@@ -1,4 +1,5 @@
 import java.util.*;
+import random;
 
 class erotiseis {
     private int code;
@@ -24,12 +25,13 @@ class erotiseis {
     }
 
     public static void printApantiseis(String[] lista)
-    {
-        List<String> strList = Arrays.asList(lista);
-        Collections.shuffle(strList);
-        lista = strList.toArray(new String[strList.size()]);
-
-        System.out.println(strList);
+    { 
+        ArrayList help = new ArrayList();
+        for(String item : lista){
+            help.add(item);
+        }
+        Collections.shuffle(help);
+        System.out.println(help);
     }
 
     public String toString(){
