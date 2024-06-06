@@ -417,7 +417,7 @@ public class appMain {
 
                 case 3:
                     while(true){
-                        clear_console();
+                        functions.clear_console();
 
                         boolean foundAksiolog=false;
                         System.out.println("Aksiologoumenoi:");
@@ -433,8 +433,8 @@ public class appMain {
 
                         int pos1=0;
 
-                        for(int i=0; aksiologoumenoi.length; i++){   
-                            if(aksiologoumeoi[i].getCode() == epilogi){
+                        for(int i=0; i<aksiologoumenoi.size(); i++){   
+                            if(aksiologoumenoi.get(i).getCode() == epilogi){
                                 foundAksiolog=true;
                                 pos1=i;
                                 break;
@@ -458,9 +458,9 @@ public class appMain {
                             System.out.print("> ");
                             er_code= Integer.parseInt(input.nextLine());
 
-                            int pos2;
-                            for(int i=0; questionList; i++){
-                                if(questionList(i).getCode() == er_code){
+                            int pos2=0;
+                            for(int i=0; i<questionList.size(); i++){
+                                if(questionList.get(i).getCode() == er_code){
                                     foundErot = true;
                                     pos2=i;
                                     break;
@@ -470,46 +470,47 @@ public class appMain {
                             if (foundErot)
                             {
 
-                                System.out.println(questionList(pos2).getEkfonisi());
+                                System.out.println(questionList.get(pos2).getEkfonisi());
 
-                                if(questionList(pos2) instanceof er_kena){
+                                if(questionList.get(pos2) instanceof er_kena){
                                     System.out.println("[*] Apantiseis Me Mperdemenh Seira: "); 
-                                    erotiseis.printApantiseis(questionList(pos2).getAnswer());
+                                    erotiseis.printApantiseis(questionList.get(pos2).getAnswer());
                                     System.out.println("Vale Tis Lexeis Stin Swsti Seira, ");
                                     System.out.println("Pliktrologontas Mia-Mia Tis Lexeis Stin Seira Pou Theorite Eseis Swsth.");
 
-                                    int b=questionList(pos2).getAnswer().length;
-                                    String[] listaAp= String[b];
-                                    for(int i=0; b; i++){
+                                    int b=questionList.get(pos2).getAnswer().length;
+                                    String[] listaAp= new String[b];
+                                    String c;
+                                    for(int i=0; i<b; i++){
                                         System.out.print("\n>");
+                                        
                                         c=input.nextLine();
                                         listaAp[i]=c;
                                     }
 
 
 
-                                    ap_kena apKenaObj = new ap_kena(questionList(pos2), aksiologoumenoi(pos1), listaAp);
-                                    answerList.add(apKenaObj);
-                                    clear_console();
+                                    answerList.add(new ap_kena( aksiologoumenoi.get(pos1),questionList.get(pos2), listaAp));
+                                    functions.clear_console();
                                 }
 
-                                else if(questionList(pos2) instanceof er_oneWord){
+                                else if(questionList.get(pos2) instanceof er_oneWord){
                                     System.out.print("Dwse Monolektiki Apantisi:  ");
-                                    String[] app = String[1];
+                                    String[] app =new String[1];
                                     app[0]=input.nextLine();
 
-                                    answerList.add(new ap_oneWord(questionList(pos2), aksiologoumenoi(position), app));
+                                    answerList.add(new ap_oneWord(aksiologoumenoi.get(pos1), questionList.get(pos2), app));
                                 }
 
                                 else{
-                                    for(int i=0; (questionList(pos2).getAnswer()).length; i++)
+                                    for(int i=0; i<(questionList.get(pos2).getAnswer()).length; i++)
                                     {
-                                        System.out.println("> "+questionList(pos2)[i]);
+                                        System.out.println("> "+questionList.get(pos2).getAnswer());
                                     }
-                                    String[] app= String[(questionList(pos2).getAnswer()).length];
+                                    String[] app= new String[(questionList.get(pos2).getAnswer()).length];
                                     System.out.print("Dialexe Swstes epiloges H 0 Gia Na Teleiwseis: \n");
 
-                                    for(int i=0; (questionList(pos2).getAnswer()).length; i++)
+                                    for(int i=0; i<questionList.get(pos2).getAnswer().length; i++)
                                     {
 
                                         System.out.print("> ");
@@ -523,11 +524,8 @@ public class appMain {
                                             app[i]= input.nextLine();
                                         }
                                     }
+                                    answerList.add(new ap_multiChoice(aksiologoumenoi.get(pos1), questionList.get(pos2), app));
                                 }
-
-
-                                    questionList.add(new ap_multiChoice(questionList(pos2), aksiologoumenoi(position),listaAp));
-                            
                                 break;
                             }
                             

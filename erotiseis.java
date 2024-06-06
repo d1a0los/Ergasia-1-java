@@ -19,7 +19,7 @@ class erotiseis {
         return code;
     }
 
-    public String[] getAnswerList(){
+    public String[] getAnswer(){
         return answerList;
     }
 
