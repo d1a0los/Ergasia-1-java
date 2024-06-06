@@ -562,6 +562,18 @@ public class appMain {
                     break;
 
                 case 4:
+                    functions.clear_console();
+                    System.out.println("                               --Erotiseis-- \n");
+                    for(erotiseis item:questionList){
+                        System.out.println(item.toString());
+                    }
+
+                    System.out.println("\n[>] To exit, to Main menu press 0 or any other key.");
+                    System.out.print("> ");
+                    input.nextLine();
+                    System.out.print("Epistrofi Sto Menu");
+                    functions.await();
+                    functions.clear_console();
                     break;
 
                 case 5:
