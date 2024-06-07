@@ -31,23 +31,23 @@ public class appMain {
 
         //----------------------------------------------------------------Erotiseis Me Mia Lexi Swsti-------------------------------------------------------------------
         String[] oneWord1={"int","Integer","Int","integer","INT"};           
-        questionList.add(new er_oneWord(4325, "Poia lexi kleidi anaferomste se akereo arithmo ston programatismo?",oneWord1));
+        questionList.add(new er_oneWord(4325, "Poia lexi kleidi anaferomste se akereo arithmo ston programatismo?",oneWord1,oneWord1));
 
         String[] oneWord2={"enthilakosi","Enthilakosi","ENTHILAKOSI"};
-        questionList.add(new er_oneWord(5852, "Pos onomazetai h prosthiki san perivlima twn plhroforion elegxou sta dedomena?",oneWord2));
+        questionList.add(new er_oneWord(5852, "Pos onomazetai h prosthiki san perivlima twn plhroforion elegxou sta dedomena?",oneWord2,oneWord2));
 
         String[] oneWord3={"pelati-ejipiretiti","Pelati-Ejipiretiti","PELATI-EJIPIRETITT"};
-        questionList.add(new er_oneWord(8962, "Se poio montelo stirizontai oi uporesies sto diadiktio?",oneWord3));
+        questionList.add(new er_oneWord(8962, "Se poio montelo stirizontai oi uporesies sto diadiktio?",oneWord3,oneWord3));
 
         //--------------------------------------------------------------------Erotiseis Me Kena--------------------------------------------------------------------------
         String[] erkena1={"tetragono","mhkous","iso","tetragonon","dyo"};
-        questionList.add(new er_kena(5467, "To [?] tou [?] tis ipoteinousas einai [?] me to athrisma twn [?] twn mikwn twn allwn [?] pleurwn.",erkena1));
+        questionList.add(new er_kena(5467, "To [?] tou [?] tis ipoteinousas einai [?] me to athrisma twn [?] twn mikwn twn allwn [?] pleurwn.",erkena1,erkena1));
 
         String[] erkena2={"dieuthinseis","ip","dromologites"};
-        questionList.add(new er_kena(8901, "Oi [?] enos idiotikou diktiou [?] den dromologountai apo tous [?] sto diadiktio.",erkena2));
+        questionList.add(new er_kena(8901, "Oi [?] enos idiotikou diktiou [?] den dromologountai apo tous [?] sto diadiktio.",erkena2,erkena2));
 
         String[] erkena3={"stoiva","FIFO","LIFO"};
-        questionList.add(new er_kena(5747,"Mia [?] ston programatismo ilopoihtai me thn texniki [?] kai oxi [?].",erkena3));
+        questionList.add(new er_kena(5747,"Mia [?] ston programatismo ilopoihtai me thn texniki [?] kai oxi [?].",erkena3,erkena3));
 
         //--------------------------------------------------------------------Menu---------------------------------------------------------------------------------------------
 
@@ -228,7 +228,7 @@ public class appMain {
                                     
                                         if (epilogi.equals("y"))
                                         {
-                                            questionList.add(new er_kena(kodikos, erotisi ,erMeKena));
+                                            questionList.add(new er_kena(kodikos, erotisi ,erMeKena,erMeKena));
                                             System.out.print("[!] H Erotisi Apothikeutike Me Epituxia!");
                                             functions.await();
                                             functions.clear_console();
@@ -285,7 +285,7 @@ public class appMain {
                                         if (epilogi.equals("y"))
                                         {
                                             finalApantisi[0] = finalApant;
-                                            questionList.add(new er_oneWord(kodikos, erotisi,finalApantisi));
+                                            questionList.add(new er_oneWord(kodikos, erotisi,finalApantisi,finalApantisi));
                                             System.out.print("[!] H Erotisi Apothikeutike Me Epituxia!");
                                             functions.await();
                                             functions.clear_console();
@@ -633,11 +633,26 @@ public class appMain {
                     break;
 
                 case 6:
-                    
-                    functions.rightCheck(capital, answerList.get(0).getListaAp(), questionList.get(0));
+                    ArrayList copyAks=new ArrayList();
+                    for(aksiologoumenos item:aksiologoumenoi){
+                        copyAks.add(item);
+                    }
+                    int a=copyAks.size();
+                    while(a>0){
+                        aksiologoumenos max=(aksiologoumenos)copyAks.get(0);
+                        for(aksiologoumenos item:aksiologoumenoi){
+                            if(item.getCorr()>max.getCorr()){
+                                max=item;
+                            }
+                        }
+                        System.out.println("O Aksiologoumenos "+max+" Exei "+max.getCorr()+" Swstes Apantiseis");
+                        copyAks.remove(max);
+                        a--;
+                    }
                     break;
 
                 case 7:
+                    System.out.println(aksiologoumenoi.get(1).getCorr());
                     break;
 
                 case 8:

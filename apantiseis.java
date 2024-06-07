@@ -30,6 +30,10 @@ class ap_kena extends apantiseis{
 
     ap_kena(aksiologoumenos stud, erotiseis ques, String[] listaAp){
         super(stud, ques,listaAp);
+        stud.addErot();
+        if(ques.getAnswer().equals(listaAp)){
+            stud.addCorr();
+        }
     }
 
     public String[] getListaAp(){
@@ -52,10 +56,14 @@ class ap_oneWord extends apantiseis {
 
     ap_oneWord(aksiologoumenos stud, erotiseis ques, String[] oneWord) {
         super(stud, ques,  oneWord);
+        stud.addErot();
+        if(ques.getAnswer().equals(oneWord)){
+            stud.addCorr();
+        }
     }
 
     public String[] getApWord(){
-        return oneWord;
+        return super.getListaAp();
     }
 
     public aksiologoumenos getAksiolog()
@@ -74,6 +82,13 @@ class ap_multiChoice extends apantiseis{
 
     ap_multiChoice(aksiologoumenos stud, erotiseis ques, String[] listaAp){
         super(stud,ques, listaAp);
+        stud.addErot();
+        System.out.println(Arrays.toString(ques.getRightAnswers()));
+        System.out.print(Arrays.toString(listaAp));
+        if(Arrays.asList(ques.getRightAnswers()).equals(Arrays.asList(listaAp))){
+            System.out.println("Gamhmene koff efyges athoriba");
+            stud.addCorr();
+        }
     }
 
     public String[] getListaAp(){

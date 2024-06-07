@@ -31,29 +31,11 @@ public class functions {
         }
     }
 
-    static boolean rightCheck(String[] rightAnswers, String[] studAnswers, erotiseis question)
-    {
-        boolean isRight = false;
-
-        if(question instanceof er_multChoice)
-        {
-            if(studAnswers == ((er_multChoice)question).getRightAnswers() & studAnswers.length == ((er_multChoice)question).getRightAnswers().length)
-            {
-                System.out.println("sostost!!!!!!!!");
-                isRight = true;
-            }
+    public static ArrayList conv(String[] lista){
+        ArrayList newList=new ArrayList();
+        for(int i=0; i<lista.length; i++){
+            newList.add(lista[i]);
         }
-
-        else if(question instanceof er_oneWord)
-        {
-
-        }
-
-        else if(question instanceof er_kena)
-        {
-
-        }
-
-        return isRight;
+        return newList;
     }
 }
