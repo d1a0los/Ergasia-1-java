@@ -634,28 +634,38 @@ public class appMain {
 
                 case 6:
                     ArrayList copyAks=new ArrayList();
+
                     for(aksiologoumenos item:aksiologoumenoi){
                         copyAks.add(item);
                     }
-                    int a=copyAks.size();
-                    while(a>0){
+
+                    int a = copyAks.size();
+                    while(a > 0){
                         aksiologoumenos max=(aksiologoumenos)copyAks.get(0);
                         for(aksiologoumenos item:aksiologoumenoi){
                             if(item.getCorr()>max.getCorr()){
                                 max=item;
                             }
                         }
-                        System.out.println("O Aksiologoumenos "+max+" Exei "+max.getCorr()+" Swstes Apantiseis");
+                        System.out.println(max+" | Exei "+max.getCorr()+" Swstes Apantiseis");
                         copyAks.remove(max);
                         a--;
                     }
                     break;
 
                 case 7:
-                    System.out.println(aksiologoumenoi.get(1).getCorr());
+                    
+                    //count swstes apantiseis
+                    //count oles oi apantiseis
+
+                    //swstes / oles * 100
                     break;
 
                 case 8:
+                    //count swstes apantiseis aksiologoumenwn
+                    //count oles oi apantiseis pou exoun dwsei oi aksiologoumenoi
+
+                    //swstes / oles * 100
                     break;
 
                 default:

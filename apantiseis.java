@@ -10,7 +10,7 @@ class apantiseis {
         this.stud=stud;
         this.listaAp=listaAp;
     }
-
+    
     public aksiologoumenos getStudent()
     {
         return stud;
