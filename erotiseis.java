@@ -44,7 +44,6 @@ class erotiseis {
 }
 
 class er_multChoice extends erotiseis {
-    private String[] rightAnswerList;
 
     er_multChoice(int code, String ekfonisi, String[] answerList, String[] rightAnswerList) {
         super(code, ekfonisi,answerList,rightAnswerList);

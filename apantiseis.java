@@ -31,7 +31,9 @@ class ap_kena extends apantiseis{
     ap_kena(aksiologoumenos stud, erotiseis ques, String[] listaAp){
         super(stud, ques,listaAp);
         stud.addErot();
-        if(ques.getAnswer().equals(listaAp)){
+        System.out.println(Arrays.toString(ques.getRightAnswers()));
+        System.out.println(Arrays.toString(listaAp));
+        if(Arrays.asList(ques.getRightAnswers()).equals(Arrays.asList(listaAp))){
             stud.addCorr();
         }
     }
@@ -57,7 +59,7 @@ class ap_oneWord extends apantiseis {
     ap_oneWord(aksiologoumenos stud, erotiseis ques, String[] oneWord) {
         super(stud, ques,  oneWord);
         stud.addErot();
-        if(ques.getAnswer().equals(oneWord)){
+        if(functions.search(ques.getRightAnswers(), oneWord)){
             stud.addCorr();
         }
     }
@@ -86,7 +88,6 @@ class ap_multiChoice extends apantiseis{
         System.out.println(Arrays.toString(ques.getRightAnswers()));
         System.out.print(Arrays.toString(listaAp));
         if(Arrays.asList(ques.getRightAnswers()).equals(Arrays.asList(listaAp))){
-            System.out.println("Gamhmene koff efyges athoriba");
             stud.addCorr();
         }
     }

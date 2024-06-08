@@ -633,16 +633,17 @@ public class appMain {
                     break;
 
                 case 6:
-                    ArrayList copyAks=new ArrayList();
+                    ArrayList<aksiologoumenos> copyAks=new ArrayList();
 
                     for(aksiologoumenos item:aksiologoumenoi){
                         copyAks.add(item);
                     }
 
                     int a = copyAks.size();
+                    aksiologoumenos max;
                     while(a > 0){
-                        aksiologoumenos max=(aksiologoumenos)copyAks.get(0);
-                        for(aksiologoumenos item:aksiologoumenoi){
+                        max=(aksiologoumenos)copyAks.get(0);
+                        for(aksiologoumenos item:copyAks){
                             if(item.getCorr()>max.getCorr()){
                                 max=item;
                             }
@@ -651,6 +652,10 @@ public class appMain {
                         copyAks.remove(max);
                         a--;
                     }
+                    System.out.println("Pathse Otidhpote Gia Epistrofi Sto Menu");
+                    input.nextLine();
+                    System.out.print("Epistrofi Sto Menu");
+                    functions.await();
                     break;
 
                 case 7:
@@ -682,3 +687,14 @@ public class appMain {
         }
     }
 }
+/*
+--> exceptions
+--> dhmiourgia mc apantisewn
+
+
+
+
+
+
+
+ */

@@ -31,11 +31,28 @@ public class functions {
         }
     }
 
-    public static ArrayList conv(String[] lista){
+    public ArrayList conv(String[] lista){
         ArrayList newList=new ArrayList();
         for(int i=0; i<lista.length; i++){
             newList.add(lista[i]);
         }
         return newList;
+    }
+
+    public static boolean search(String[] list1, String[] list2){
+        boolean x=false;
+        int a=0;
+        for(String item:list2){
+            for(String item2:list1){
+                if(item.equals(item2)){
+                    a++;
+                    break;
+                }
+            }
+        }
+        if(a==list2.length){
+            x=true;
+        }
+        return x;
     }
 }
