@@ -47,6 +47,8 @@ class er_multChoice extends erotiseis {
 
     er_multChoice(int code, String ekfonisi, String[] answerList, String[] rightAnswerList) {
         super(code, ekfonisi,answerList,rightAnswerList);
+        int ans=0;
+        int cors=0;
     }
 
     public String getEkfonisi(){
@@ -64,6 +66,14 @@ class er_multChoice extends erotiseis {
     public String[] getRightAnswers()
     {
         return super.getRightAnswers();
+    }
+
+    public void addAns(){
+        this.ans++;
+    }
+
+    public void addCors(){
+        this.cors++;
     }
 }
 
@@ -71,6 +81,8 @@ class er_oneWord extends erotiseis{
 
     er_oneWord(int code, String ekfonisi, String[] Answer, String[] rightAnswer) {
         super(code, ekfonisi,Answer,rightAnswer);
+        int ans=0;
+        int cors=0;
     }
 
     public String getEkfonisi(){
@@ -88,12 +100,22 @@ class er_oneWord extends erotiseis{
     public String[] getRightAnswers()
     {
         return super.getRightAnswers();
+    }
+
+    public void addAns(){
+        this.ans++;
+    }
+
+    public void addCors(){
+        this.cors++;
     }
 }
 
 class er_kena extends erotiseis{
     er_kena(int code, String ekfonisi, String[] answerList, String[] rightAnswer) {
         super(code, ekfonisi,answerList,rightAnswer);
+        int ans=0;
+        int cors=0;
     }
 
     public String getEkfonisi(){
@@ -111,5 +133,13 @@ class er_kena extends erotiseis{
     public String[] getRightAnswers()
     {
         return super.getRightAnswers();
+    }
+
+    public void addAns(){
+        this.ans++;
+    }
+
+    public void addCors(){
+        this.cors++;
     }
 }

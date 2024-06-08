@@ -659,7 +659,8 @@ public class appMain {
                     break;
 
                 case 7:
-                    
+                    //EISAI MALAKAS    
+
                     //count swstes apantiseis
                     //count oles oi apantiseis
 
@@ -667,6 +668,8 @@ public class appMain {
                     break;
 
                 case 8:
+                    //AYTO KANONIKA DE THA TO DEIS GT EISAI TOSO MALAKAS POU SIGA MH FTASEIS MEXRI TO 8
+
                     //count swstes apantiseis aksiologoumenwn
                     //count oles oi apantiseis pou exoun dwsei oi aksiologoumenoi
 
