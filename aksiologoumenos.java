@@ -15,32 +15,18 @@ class aksiologoumenos {
         this.correct=0;
     }
 
-    public String getName(){
-        return name;
-    }
+    public String getName() {return name;}
 
-    public int getCode(){
-        return code;
-    }
-    public String getSurname(){
-        return surname;
-    }
+    public int getCode() {return code;}
+    public String getSurname() {return surname;}
 
-    public int getErot(){
-        return erotis;
-    }
+    public int getErot() {return erotis;}
 
-    public void addErot(){
-        erotis++;
-    }
+    public void addErot() {erotis++;}
 
-    public int getCorr(){
-        return correct;
-    }
+    public int getCorr() {return correct;}
 
-    public void addCorr(){
-        correct++;
-    }
+    public void addCorr() {correct++;}
 
     public String toString() {
         return "[*]Code: " + code + ", Name: " + name + ", Surname: " + surname;

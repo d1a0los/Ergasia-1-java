@@ -16,9 +16,7 @@ class apantiseis {
         return stud;
     }
 
-    public String[] getListaAp(){
-        return listaAp;
-    }
+    public String[] getListaAp(){return listaAp;}
 
     public String toString(){
         return ques.toString()+"[*] Apantish/eis:"+ listaAp;

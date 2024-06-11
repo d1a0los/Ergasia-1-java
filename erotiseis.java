@@ -1,32 +1,45 @@
 import java.util.*;
-import random;
 
 class erotiseis {
     private int code;
     private String ekfonisi;
     private String[] answerList;
     private String[] rightAnswerList;
+    private int ans;
+    private int cors;
+    private double perc;
 
     erotiseis(int code, String ekfonisi, String[] answerList, String[] rightAnswerList) {
         this.code = code;
         this.ekfonisi = ekfonisi;
         this.answerList=answerList;
         this.rightAnswerList=rightAnswerList;
+        ans=0;
+        cors=0;
+        addAns();
     }
 
-    public String getEkfonisi(){
-        return ekfonisi;
-    }
+    public String getEkfonisi() {return ekfonisi;}
 
-    public int getCode(){
-        return code;
-    }
+    public int getCode() {return code;}
 
-    public String[] getAnswer(){
-        return answerList;
+    public String[] getAnswer() {return answerList;}
+
+    public String[] getRightAnswers() {return rightAnswerList;}
+
+    public int getAns() {return ans;}
+
+    public void addAns() {ans++;}
+    
+    public int getCors() {return cors;}
+
+    public void addCors() {cors++;}
+
+    public double getPerc() {return perc;}
+
+    public void makePerc(int x , int y){
+        perc=x/y*100.0;
     }
-    public String[] getRightAnswers()
-    {return rightAnswerList;}
 
     public static void printApantiseis(String[] lista)
     { 
@@ -45,101 +58,108 @@ class erotiseis {
 
 class er_multChoice extends erotiseis {
 
+    private int ans=0;
+    private int cors=0;
+    private float perc;
+
     er_multChoice(int code, String ekfonisi, String[] answerList, String[] rightAnswerList) {
         super(code, ekfonisi,answerList,rightAnswerList);
-        int ans=0;
-        int cors=0;
+        ans=0;
+        cors=0;
+        addAns();
     }
 
-    public String getEkfonisi(){
-        return super.getEkfonisi();
-    }
+    public String getEkfonisi() {return super.getEkfonisi();}
 
-    public int getCode(){
-        return super.getCode();
-    }
+    public int getCode() {return super.getCode();}
 
-    public String[] getAnswer(){
-        return super.getAnswer();
-    }
+    public String[] getAnswer() {return super.getAnswer();}
 
-    public String[] getRightAnswers()
-    {
-        return super.getRightAnswers();
-    }
+    public String[] getRightAnswers() {return super.getRightAnswers();}
 
-    public void addAns(){
-        this.ans++;
-    }
+    public int getAns() {return super.getAns();}
 
-    public void addCors(){
-        this.cors++;
+    public void addAns() {super.addAns();}
+    
+    public int getCors() {return super.getCors();}
+
+    public void addCors() {super.addCors();}
+
+    public double getPerc() {return super.getPerc();}
+
+    public void makePerc(){
+        super.makePerc();
     }
 }
 
 class er_oneWord extends erotiseis{
 
+    private int ans;
+    private int cors;
+    private float perc;
+
     er_oneWord(int code, String ekfonisi, String[] Answer, String[] rightAnswer) {
         super(code, ekfonisi,Answer,rightAnswer);
-        int ans=0;
-        int cors=0;
+        ans=0;
+        cors=0;
+        addAns();
     }
 
-    public String getEkfonisi(){
-        return super.getEkfonisi();
-    }
+    public String getEkfonisi() {return super.getEkfonisi();}
 
-    public int getCode(){
-        return super.getCode();
-    }
+    public int getCode() {return super.getCode();}
 
-    public String[] getAnswer(){
-        return super.getAnswer();
-    }
+    public String[] getAnswer() {return super.getAnswer();}
 
-    public String[] getRightAnswers()
-    {
-        return super.getRightAnswers();
-    }
+    public String[] getRightAnswers() {return super.getRightAnswers();}
 
-    public void addAns(){
-        this.ans++;
-    }
+    public int getAns() {return super.getAns();}
 
-    public void addCors(){
-        this.cors++;
+    public void addAns() {super.addAns();}
+    
+    public int getCors() {return super.getCors();}
+
+    public void addCors() {super.addCors();}
+
+    public double getPerc() {return super.getPerc();}
+
+    public void makePerc(){
+        super.makePerc();
     }
 }
 
 class er_kena extends erotiseis{
+
+    private int ans;
+    private int cors;
+    private float perc;
+
     er_kena(int code, String ekfonisi, String[] answerList, String[] rightAnswer) {
         super(code, ekfonisi,answerList,rightAnswer);
-        int ans=0;
-        int cors=0;
+        ans=0;
+        cors=0;
+        addAns();
     }
 
-    public String getEkfonisi(){
-        return super.getEkfonisi();
-    }
+    public String getEkfonisi() {return super.getEkfonisi();}
 
-    public int getCode(){
-        return super.getCode();
-    }
+    public int getCode() {return super.getCode();}
 
-    public String[] getAnswer(){
-        return super.getAnswer();
-    }
+    public String[] getAnswer() {return super.getAnswer();}
 
-    public String[] getRightAnswers()
-    {
-        return super.getRightAnswers();
-    }
+    public String[] getRightAnswers() {return super.getRightAnswers();}
 
-    public void addAns(){
-        this.ans++;
-    }
+    public int getAns() {return super.getAns();}
 
-    public void addCors(){
-        this.cors++;
+    public void addAns() {super.addAns();}
+    
+    public int getCors() {return super.getCors();}
+
+    public void addCors() {super.addCors();}
+
+    public double getPerc() {return super.getPerc();}
+
+    public void makePerc(){
+        super.makePerc();
     }
 }

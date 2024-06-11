@@ -59,6 +59,7 @@ public class appMain {
         System.out.println("                                             ");
         System.out.println("          -Creators: 3230098, 3230016, 3230078-");
         System.out.println("                                             ");
+        
 
         while (true) {
 
@@ -656,11 +657,67 @@ public class appMain {
                     input.nextLine();
                     System.out.print("Epistrofi Sto Menu");
                     functions.await();
+                    functions.clear_console();
                     break;
 
                 case 7:
-                    //EISAI MALAKAS    
+                    ArrayList<erotiseis> copyEr=new ArrayList();
 
+                    for(erotiseis item:questionList){
+                        copyEr.add(item);
+                    }
+
+                    int b = copyEr.size();
+                    int d;
+                    int f;
+                    int g;
+                    int h;
+                    erotiseis max1;
+                    while(b > 0){
+                        max1=(erotiseis)copyEr.get(0);
+                        System.out.println(max1);
+                        d=max1.getAns();
+                        f=max1.getCors();
+                        max1.makePerc(f, d);
+                        for(erotiseis item:copyEr){
+                            if(item instanceof er_kena){
+                                g=((er_kena)item).getCors();
+                                h=((er_kena)item).getAns();
+                                ((er_kena)item).makePerc(g, h);
+                                if(item.getPerc()>max1.getPerc()){
+                                    max1=item;
+                                }
+                            }
+                            else if(item instanceof er_multChoice){
+                                g=((er_multChoice)item).getCors();
+                                h=((er_multChoice)item).getAns();
+                                ((er_multChoice)item).makePerc(g , h);
+                                if(item.getPerc()>max1.getPerc()){
+                                    max1=item;
+                                }
+                            }
+                            else{
+                                g=((er_oneWord)item).getCors();
+                                h=((er_oneWord)item).getAns();
+                                ((er_oneWord)item).makePerc(g , h);
+                                if(item.getPerc()>max1.getPerc()){
+                                max1=item;
+                                }
+                            }
+                            System.out.println(max1);
+                        }
+                        System.out.println(max1);
+                        System.out.println(max1.getPerc());
+                        System.out.println("H Erotisi >> "+max1+" <<        Exei Pososto Swstwn Apantisewn "+max1.getPerc()+" %");
+                        copyEr.remove(max1);
+                        b--;
+                    }
+                    System.out.println("Pathse Otidhpote Gia Epistrofi Sto Menu");
+                    input.nextLine();
+                    System.out.print("Epistrofi Sto Menu");
+                    functions.await();
+                    functions.clear_console();
+ 
                     //count swstes apantiseis
                     //count oles oi apantiseis
 
@@ -668,6 +725,18 @@ public class appMain {
                     break;
 
                 case 8:
+                    //System.out.println(erotiseis.getAns());
+
+
+
+
+
+
+
+
+
+
+
                     //AYTO KANONIKA DE THA TO DEIS GT EISAI TOSO MALAKAS POU SIGA MH FTASEIS MEXRI TO 8
 
                     //count swstes apantiseis aksiologoumenwn
