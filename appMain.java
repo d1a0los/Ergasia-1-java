@@ -383,7 +383,7 @@ public class appMain {
                                         
                                             if (epilogi.equals("y"))
                                             {
-                                                questionList.add(new er_multChoice(kodikos, erotisi,erMultCh_Right,erMultCh));
+                                                questionList.add(new er_multChoice(kodikos, erotisi,erMultCh,erMultCh_Right));
                                                 System.out.print("[!] H Erotisi Apothikeutike Me Epituxia!");
                                                 functions.await();
                                                 functions.clear_console();
@@ -485,17 +485,16 @@ public class appMain {
                                 if (foundErot)
                                 {
                                     boolean aa=false; //already answered
+
                                     for(apantiseis item : answerList){
-                                        for(erotiseis prama : questionList){
-                                            if(item.getStudent().equals(aksiologoumenoi.get(pos1)) && (prama.getCode())==questionList.get(pos2).getCode())
-                                                {aa=true;}
+                                        if(item.getStudent().getCode() == epilogi && item.getErot().getCode() == er_code)
+                                        {
+                                            aa=true;
                                         }
                                     }
 
                                     if(!aa)
                                     {
-
-                                    
                                         System.out.println(questionList.get(pos2).getEkfonisi());
                                     
                                         if(questionList.get(pos2) instanceof er_kena){
@@ -573,6 +572,7 @@ public class appMain {
                                             functions.await();
                                             functions.clear_console();
                                         }
+
                                         break;
                                     }
 
@@ -647,12 +647,13 @@ public class appMain {
     
                         for(aksiologoumenos items : aksiologoumenoi){   
                             if(items.getCode() == code){
+                                System.out.println("\n"+items.toString());
                                 found = true;
                                 for(apantiseis item : answerList)
                                 {
                                     if(item.getStudent() == items)
                                     {
-                                        System.out.println(Arrays.toString(item.getListaAp()));
+                                        System.out.println("[*] Erotisi: " + item.getErot().getEkfonisi() + "| Apantisi: " + Arrays.toString(item.getListaAp()));
                                     }
                                 }
                             }
@@ -666,6 +667,7 @@ public class appMain {
                         }
                         
                         System.out.println("[!] Gia Epistofi Sto Main Menu Pata 0, Pata Otidipote Allo Gia Epaneisagogi Aksiologoumenou");
+                        System.out.print("> ");
                         String epilogi = input.nextLine();
 
                         if(epilogi.equals("0"))
@@ -702,7 +704,8 @@ public class appMain {
                         copyAks.remove(max);
                         a--;
                     }
-                    System.out.println("Pathse Otidhpote Gia Epistrofi Sto Menu");
+                    System.out.println("[!] Pathse Otidhpote Gia Epistrofi Sto Menu");
+                    System.out.print("> ");
                     input.nextLine();
                     System.out.print("Epistrofi Sto Menu");
                     functions.await();
@@ -837,6 +840,7 @@ public class appMain {
                     break;
 
                 default:
+                    functions.clear_console();
                     break;
             }
 

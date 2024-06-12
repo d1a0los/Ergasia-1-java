@@ -18,6 +18,11 @@ class apantiseis {
 
     public String[] getListaAp(){return listaAp;}
 
+    public erotiseis getErot()
+    {
+        return ques;
+    }
+
     public String toString(){
         return ques.toString()+"[*] Apantish/eis:"+ listaAp;
     }
@@ -43,6 +48,11 @@ class ap_kena extends apantiseis{
     public aksiologoumenos getStudent()
     {
         return stud;
+    }
+
+    public erotiseis getErot()
+    {
+        return ques;
     }
 
     public String getApType()
@@ -73,6 +83,11 @@ class ap_oneWord extends apantiseis {
         return stud;
     }
 
+    public erotiseis getErot()
+    {
+        return ques;
+    }
+
     public String getApType()
     {
         return apType;
@@ -99,6 +114,11 @@ class ap_multiChoice extends apantiseis{
     public aksiologoumenos getAksiolog()
     {
         return stud;
+    }
+
+    public erotiseis getErot()
+    {
+        return ques;
     }
 
     public String getApType()
