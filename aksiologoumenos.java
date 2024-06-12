@@ -6,6 +6,7 @@ class aksiologoumenos {
     private String surname;
     private int erotis;
     private int correct;
+    private double perc;
 
     aksiologoumenos(int code, String name, String surname) {
         this.code = code;
@@ -27,6 +28,12 @@ class aksiologoumenos {
     public int getCorr() {return correct;}
 
     public void addCorr() {correct++;}
+
+    public double getPercAks() {return perc;}
+
+    public void makePercAks(int x , int y){
+        this.perc = (double)x / (double)y * 100.0;
+    }
 
     public String toString() {
         return "[*]Code: " + code + ", Name: " + name + ", Surname: " + surname;

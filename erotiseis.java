@@ -16,7 +16,6 @@ class erotiseis {
         this.rightAnswerList=rightAnswerList;
         ans=0;
         cors=0;
-        addAns();
     }
 
     public String getEkfonisi() {return ekfonisi;}
@@ -38,7 +37,7 @@ class erotiseis {
     public double getPerc() {return perc;}
 
     public void makePerc(int x , int y){
-        perc=x/y*100.0;
+        this.perc = (double)x / (double)y * 100.0;
     }
 
     public static void printApantiseis(String[] lista)
@@ -66,7 +65,6 @@ class er_multChoice extends erotiseis {
         super(code, ekfonisi,answerList,rightAnswerList);
         ans=0;
         cors=0;
-        addAns();
     }
 
     public String getEkfonisi() {return super.getEkfonisi();}
@@ -102,7 +100,6 @@ class er_oneWord extends erotiseis{
         super(code, ekfonisi,Answer,rightAnswer);
         ans=0;
         cors=0;
-        addAns();
     }
 
     public String getEkfonisi() {return super.getEkfonisi();}
@@ -138,7 +135,6 @@ class er_kena extends erotiseis{
         super(code, ekfonisi,answerList,rightAnswer);
         ans=0;
         cors=0;
-        addAns();
     }
 
     public String getEkfonisi() {return super.getEkfonisi();}

@@ -39,7 +39,7 @@ public class functions {
         return newList;
     }
 
-    public static boolean search(String[] list1, String[] list2){
+    static boolean search(String[] list1, String[] list2){
         boolean x=false;
         int a=0;
         for(String item:list2){
